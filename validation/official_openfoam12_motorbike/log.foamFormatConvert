@@ -1,0 +1,59 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 12-be08204b6af2
+Exec   : foamFormatConvert -case /home/foamuser/OpenFOAM/foamuser-12/run/motorBikeSteady-layer-validation-20261004 -constant
+Date   : Oct 04 2026
+Time   : 18:03:11
+Host   : "OPENFOAM-VALIDATION-HOST"
+PID    : 167068
+I/O    : uncollated
+Case   : /home/foamuser/OpenFOAM/foamuser-12/run/motorBikeSteady-layer-validation-20261004
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Time = constant
+        Reading labelList : owner
+        Writing owner
+        Reading labelList : neighbour
+        Writing neighbour
+        Reading faceCompactList : faces
+        Writing faces
+        Reading vectorField : points
+        Writing points
+        Reading polyBoundaryMesh : boundary
+        Writing boundary
+
+Time = 0s
+        Reading volScalarField : thickness
+        Writing thickness
+        Reading volScalarField : nut
+        Writing nut
+        Reading volVectorField : U
+        Writing U
+        Reading volScalarField : k
+        Writing k
+        Reading volScalarField : p
+        Writing p
+        Reading volScalarField : cellLevel
+        Writing cellLevel
+        Reading pointScalarField : pointLevel
+        Writing pointLevel
+        Reading volScalarField : thicknessFraction
+        Writing thicknessFraction
+        Reading volScalarField : nSurfaceLayers
+        Writing nSurfaceLayers
+        Reading volScalarField : omega
+        Writing omega
+
+End
+

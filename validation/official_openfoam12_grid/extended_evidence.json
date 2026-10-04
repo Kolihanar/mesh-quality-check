@@ -1,0 +1,46 @@
+{
+  "grids": {
+    "coarse": {
+      "start_iteration": 214,
+      "end_iteration": 1000,
+      "stopped_at_end_time_without_simple_convergence": true,
+      "target_at_start_m2_s2": -5.658197,
+      "target_at_end_m2_s2": -5.66796,
+      "last_window_mean_m2_s2": -5.66676905,
+      "last_two_20_percent_window_relative_drift": 1.377680990895846e-05,
+      "last_20_percent_window_relative_range": 0.0006250475303911477,
+      "last_20_percent_window_relative_p05_p95_span": 0.0004808383712055803,
+      "last_20_percent_window_relative_std": 0.0001460931961412744
+    },
+    "medium": {
+      "start_iteration": 286,
+      "end_iteration": 1000,
+      "stopped_at_end_time_without_simple_convergence": true,
+      "target_at_start_m2_s2": -5.064117,
+      "target_at_end_m2_s2": -5.05348,
+      "last_window_mean_m2_s2": -5.05393182,
+      "last_two_20_percent_window_relative_drift": 0.00010180046692425194,
+      "last_20_percent_window_relative_range": 0.0003076812381690877,
+      "last_20_percent_window_relative_p05_p95_span": 0.0002700768527582041,
+      "last_20_percent_window_relative_std": 8.657385966571544e-05
+    },
+    "fine": {
+      "start_iteration": 461,
+      "end_iteration": 1000,
+      "stopped_at_end_time_without_simple_convergence": true,
+      "target_at_start_m2_s2": -4.415714,
+      "target_at_end_m2_s2": -4.357891,
+      "last_window_mean_m2_s2": -4.370749335,
+      "last_two_20_percent_window_relative_drift": 0.002683601256475687,
+      "last_20_percent_window_relative_range": 0.02720975075089712,
+      "last_20_percent_window_relative_p05_p95_span": 0.01809532964214244,
+      "last_20_percent_window_relative_std": 0.005386978520237923
+    }
+  },
+  "matching_solver_setup_sha256": {
+    "controlDict": "47edbd202137abeab32e237bae5d8db642d615dcb18bf21d75a65cf0b0286894",
+    "fvSolution": "0ea815166fd4f4cf6ef688ab6637f1759b42e1954daa21cdd090f2d6888f059c",
+    "fvSchemes": "7656210b3daee41a65509dac6a4bb66afcb5303c7bf56130530a96d905a26335",
+    "functions": "91e95893e597e138f0dc266e98d5d69d88073ea20b9109d929069dfd5241bf83"
+  }
+}

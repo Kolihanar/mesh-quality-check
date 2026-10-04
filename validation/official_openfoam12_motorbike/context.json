@@ -1,0 +1,16 @@
+{
+  "walls": {
+    "lowerWall": {
+      "target_layers": 1,
+      "min_layer_coverage": 0.95
+    },
+    "motorBike_frt-fairing:001%1": {
+      "target_layers": 1,
+      "min_layer_coverage": 0.95
+    },
+    "motorBike_fr-wh-rim:011%11": {
+      "target_layers": 1,
+      "min_layer_coverage": 0.95
+    }
+  }
+}

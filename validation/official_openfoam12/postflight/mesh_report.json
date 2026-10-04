@@ -1,0 +1,687 @@
+{
+  "generated": "2026-10-04 18:23:56",
+  "input": "/home/foamuser/OpenFOAM/foamuser-12/run/pitzDailySteady-mesh-quality-20261004",
+  "detection": {
+    "source": "openfoam",
+    "kind": "case",
+    "path": "/home/foamuser/OpenFOAM/foamuser-12/run/pitzDailySteady-mesh-quality-20261004",
+    "polymesh": "/home/foamuser/OpenFOAM/foamuser-12/run/pitzDailySteady-mesh-quality-20261004/constant/polyMesh",
+    "evidence": [
+      "找到 constant/polyMesh/{points,faces,owner}",
+      "存在 system/controlDict"
+    ]
+  },
+  "overall": "high",
+  "overall_zh": "高风险",
+  "source": "openfoam",
+  "input_kind": "case",
+  "mesh_info": {
+    "n_points": 25012,
+    "n_faces": 49180,
+    "n_internal_faces": 24170,
+    "n_cells": 12225,
+    "version": "12",
+    "cell_types": {
+      "hexahedra": 12225
+    },
+    "n_dims": 2,
+    "bounds": [
+      [
+        -0.0206,
+        -0.0254,
+        -0.0005
+      ],
+      [
+        0.29,
+        0.0254,
+        0.0005
+      ]
+    ],
+    "patches": [
+      {
+        "name": "inlet",
+        "type": "patch",
+        "nFaces": 30
+      },
+      {
+        "name": "outlet",
+        "type": "patch",
+        "nFaces": 57
+      },
+      {
+        "name": "upperWall",
+        "type": "wall",
+        "nFaces": 223
+      },
+      {
+        "name": "lowerWall",
+        "type": "wall",
+        "nFaces": 250
+      },
+      {
+        "name": "frontAndBack",
+        "type": "empty",
+        "nFaces": 24450
+      }
+    ],
+    "face_sizes": {
+      "4": 49180
+    },
+    "cell_volume": {
+      "min": 1.6902e-10,
+      "max": 3.83579e-09
+    }
+  },
+  "findings": [
+    {
+      "metric": "non_orthogonality",
+      "name_zh": "非正交性",
+      "category": "quality",
+      "value": 5.95,
+      "stat": "max",
+      "unit": "°",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 24170,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "面法向与相邻单元中心连线的夹角（仅内部面），0° 为理想",
+      "threshold": {
+        "direction": "max",
+        "moderate": 65,
+        "high": 70,
+        "critical": 85
+      },
+      "advice": [],
+      "average": 1.63034,
+      "distribution": {
+        ">50°": 0,
+        ">65°": 0,
+        ">70°": 0,
+        ">80°": 0
+      }
+    },
+    {
+      "metric": "skewness",
+      "name_zh": "歪斜度（OpenFOAM 定义）",
+      "category": "quality",
+      "value": 0.2606,
+      "stat": "max",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 49180,
+      "total_kind": "面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "面中心相对两单元中心连线交点的偏移，按面尺寸归一化；无上界，0 为理想",
+      "threshold": {
+        "direction": "max",
+        "moderate": 2.5,
+        "high": 4,
+        "critical": 20
+      },
+      "advice": [],
+      "distribution": {
+        ">1": 0,
+        ">2.5": 0,
+        ">4": 0,
+        ">10": 0
+      }
+    },
+    {
+      "metric": "aspect_ratio",
+      "name_zh": "长宽比",
+      "category": "quality",
+      "value": 8.141,
+      "stat": "max",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 12225,
+      "total_kind": "单元",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "OpenFOAM cellAspectRatio，1 为理想",
+      "threshold": {
+        "direction": "max",
+        "moderate": 1000,
+        "high": 10000,
+        "critical": null
+      },
+      "advice": []
+    },
+    {
+      "metric": "cell_determinant",
+      "name_zh": "单元行列式",
+      "category": "quality",
+      "value": 0.0129897,
+      "stat": "min",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 12225,
+      "total_kind": "单元",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": null,
+      "threshold": {
+        "direction": "min",
+        "moderate": 0.01,
+        "high": 0.001,
+        "critical": null
+      },
+      "advice": []
+    },
+    {
+      "metric": "interpolation_weight",
+      "name_zh": "面插值权重",
+      "category": "quality",
+      "value": 0.400284,
+      "stat": "min",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 24170,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": null,
+      "threshold": {
+        "direction": "min",
+        "moderate": 0.05,
+        "high": 0.02,
+        "critical": null
+      },
+      "advice": []
+    },
+    {
+      "metric": "volume_ratio",
+      "name_zh": "相邻单元体积比",
+      "category": "quality",
+      "value": 0.667076,
+      "stat": "min",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 24170,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": null,
+      "threshold": {
+        "direction": "min",
+        "moderate": 0.01,
+        "high": 0.001,
+        "critical": null
+      },
+      "advice": []
+    },
+    {
+      "metric": "near_wall_nonortho",
+      "name_zh": "壁面 upperWall 的近壁内部面非正交角",
+      "category": "quality",
+      "value": 5.9504,
+      "stat": "max",
+      "unit": "°",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 445,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "near_wall_skew",
+      "name_zh": "壁面 upperWall 的近壁内部面歪斜度",
+      "category": "quality",
+      "value": 0.1306,
+      "stat": "max",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 445,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "yplus",
+      "name_zh": "壁面 upperWall 的 y⁺ 区间偏离",
+      "category": "quality",
+      "value": 7.231,
+      "stat": "p95",
+      "unit": "",
+      "severity": "high",
+      "severity_zh": "高风险",
+      "n_bad": 223,
+      "n_total": 223,
+      "total_kind": "壁面面",
+      "fraction": 1.0,
+      "scope": "widespread",
+      "scope_zh": "大面积",
+      "location": {
+        "near_patches": [
+          {
+            "patch": "upperWall",
+            "count": 223
+          }
+        ],
+        "bbox_min": [
+          -0.019808581540000002,
+          0.016868007600000002,
+          0.0
+        ],
+        "bbox_max": [
+          0.28744174564999997,
+          0.025400000000000002,
+          0.0
+        ]
+      },
+      "raw": null,
+      "definition": "筛查目标区间 30.0–300.0（工况显式指定）；按面积计算区间外比例 100.0%；证据 solver_result；单凭偏离不能判定求解失败",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "near_wall_nonortho",
+      "name_zh": "壁面 lowerWall 的近壁内部面非正交角",
+      "category": "quality",
+      "value": 5.8706,
+      "stat": "max",
+      "unit": "°",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 497,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "near_wall_skew",
+      "name_zh": "壁面 lowerWall 的近壁内部面歪斜度",
+      "category": "quality",
+      "value": 0.1141,
+      "stat": "max",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 497,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "yplus",
+      "name_zh": "壁面 lowerWall 的 y⁺ 区间偏离",
+      "category": "quality",
+      "value": 26.39,
+      "stat": "p95",
+      "unit": "",
+      "severity": "high",
+      "severity_zh": "高风险",
+      "n_bad": 250,
+      "n_total": 250,
+      "total_kind": "壁面面",
+      "fraction": 1.0,
+      "scope": "widespread",
+      "scope_zh": "大面积",
+      "location": {
+        "near_patches": [
+          {
+            "patch": "lowerWall",
+            "count": 250
+          }
+        ],
+        "bbox_min": [
+          -0.019808581540000002,
+          -0.025400000000000002,
+          0.0
+        ],
+        "bbox_max": [
+          0.28744174565,
+          0.0,
+          0.0
+        ]
+      },
+      "raw": null,
+      "definition": "筛查目标区间 30.0–300.0（工况显式指定）；按面积计算区间外比例 100.0%；证据 solver_result；单凭偏离不能判定求解失败",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "mass_balance",
+      "name_zh": "稳态质量守恒",
+      "category": "quality",
+      "value": 2.9003104938477653e-05,
+      "stat": "relative",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": null,
+      "n_total": null,
+      "total_kind": "单元",
+      "fraction": null,
+      "scope": null,
+      "scope_zh": "未知（只有极值）",
+      "location": null,
+      "raw": null,
+      "definition": "恒密度不可压缩流：各边界体积通量按外法向有符号求和，除以较大的流入/流出总量",
+      "threshold": null,
+      "advice": []
+    }
+  ],
+  "extra": {
+    "checkmesh_verdict": "Mesh OK",
+    "checkmesh_flagged_lines": []
+  },
+  "limitations": [
+    "位置/分布统计来自本工具按 OpenFOAM 公式的独立计算，数值可能与 checkMesh 有微小差别；严重程度以 checkMesh 数值为准。",
+    "二维网格（含 empty 面）：长宽比只在求解方向上计算。"
+  ],
+  "visualize_hint": "checkMesh 会把坏面/坏单元写成集合（如 nonOrthoFaces、skewFaces）。用 `foamToVTK -faceSet nonOrthoFaces`（单元集合用 -cellSet）转成 VTK，或 ESI 版直接用 `checkMesh -allGeometry -allTopology -writeSets vtk`，在 ParaView 中查看。",
+  "cfd": {
+    "profile": "OpenFOAM 单相 RANS 内流",
+    "wall_geometry": {
+      "upperWall": {
+        "n_faces": 223,
+        "measured_faces": 223,
+        "distance_min": 8.519663709535061e-05,
+        "distance_p05": 0.00010968490718514638,
+        "distance_median": 0.00018167534892724047,
+        "distance_p95": 0.0002101338099999954,
+        "distance_max": 0.00021013381000000234,
+        "normal_to_tangential_scale_p95": 0.5472046014551207,
+        "first_cell_aspect_p95": 7.133763185446761,
+        "near_wall_internal_faces": 445,
+        "near_wall_nonortho_max": 5.950448607163021,
+        "near_wall_nonortho_p95": 5.950448432580226,
+        "near_wall_nonortho_over70": 0,
+        "near_wall_nonortho_over65": 0,
+        "near_wall_skew_max": 0.1305707704332591,
+        "near_wall_skew_p95": 0.0016129791614012598,
+        "near_wall_skew_over4": 0,
+        "near_wall_skew_over2_5": 0
+      },
+      "lowerWall": {
+        "n_faces": 250,
+        "measured_faces": 250,
+        "distance_min": 0.00015942030084999996,
+        "distance_p05": 0.00015942030085,
+        "distance_median": 0.0005137643862154189,
+        "distance_p95": 0.0005611697631106582,
+        "distance_max": 0.0005643238035981449,
+        "normal_to_tangential_scale_p95": 1.471334825802905,
+        "first_cell_aspect_p95": 3.7096999068788548,
+        "near_wall_internal_faces": 497,
+        "near_wall_nonortho_max": 5.870628529096043,
+        "near_wall_nonortho_p95": 5.760614390385397,
+        "near_wall_nonortho_over70": 0,
+        "near_wall_nonortho_over65": 0,
+        "near_wall_skew_max": 0.11408742771636886,
+        "near_wall_skew_p95": 0.001494941124804458,
+        "near_wall_skew_over4": 0,
+        "near_wall_skew_over2_5": 0
+      }
+    },
+    "wall_checks": {
+      "upperWall": {
+        "treatment": "standard_wall_function",
+        "status": "evaluated",
+        "geometry": {
+          "n_faces": 223,
+          "measured_faces": 223,
+          "distance_min": 8.519663709535061e-05,
+          "distance_p05": 0.00010968490718514638,
+          "distance_median": 0.00018167534892724047,
+          "distance_p95": 0.0002101338099999954,
+          "distance_max": 0.00021013381000000234,
+          "normal_to_tangential_scale_p95": 0.5472046014551207,
+          "first_cell_aspect_p95": 7.133763185446761,
+          "near_wall_internal_faces": 445,
+          "near_wall_nonortho_max": 5.950448607163021,
+          "near_wall_nonortho_p95": 5.950448432580226,
+          "near_wall_nonortho_over70": 0,
+          "near_wall_nonortho_over65": 0,
+          "near_wall_skew_max": 0.1305707704332591,
+          "near_wall_skew_p95": 0.0016129791614012598,
+          "near_wall_skew_over4": 0,
+          "near_wall_skew_over2_5": 0
+        },
+        "wall_conditions_verified": false,
+        "wall_field_types": {
+          "nut": "nutkWallFunction",
+          "omega": "omegaWallFunction",
+          "epsilon": "epsilonWallFunction"
+        },
+        "low_y_wall_function": true,
+        "target_yplus": [
+          30.0,
+          300.0
+        ],
+        "target_source": "explicit",
+        "provenance": "solver_result",
+        "yplus": {
+          "min": 2.81891,
+          "p05": 2.93321,
+          "median": 5.99397,
+          "p95": 7.23114,
+          "max": 7.24148,
+          "mean": 5.417721882485776,
+          "outside_area_fraction": 1.0,
+          "n_outside": 223,
+          "n_valid": 223
+        }
+      },
+      "lowerWall": {
+        "treatment": "standard_wall_function",
+        "status": "evaluated",
+        "geometry": {
+          "n_faces": 250,
+          "measured_faces": 250,
+          "distance_min": 0.00015942030084999996,
+          "distance_p05": 0.00015942030085,
+          "distance_median": 0.0005137643862154189,
+          "distance_p95": 0.0005611697631106582,
+          "distance_max": 0.0005643238035981449,
+          "normal_to_tangential_scale_p95": 1.471334825802905,
+          "first_cell_aspect_p95": 3.7096999068788548,
+          "near_wall_internal_faces": 497,
+          "near_wall_nonortho_max": 5.870628529096043,
+          "near_wall_nonortho_p95": 5.760614390385397,
+          "near_wall_nonortho_over70": 0,
+          "near_wall_nonortho_over65": 0,
+          "near_wall_skew_max": 0.11408742771636886,
+          "near_wall_skew_p95": 0.001494941124804458,
+          "near_wall_skew_over4": 0,
+          "near_wall_skew_over2_5": 0
+        },
+        "wall_conditions_verified": false,
+        "wall_field_types": {
+          "nut": "nutkWallFunction",
+          "omega": "omegaWallFunction",
+          "epsilon": "epsilonWallFunction"
+        },
+        "low_y_wall_function": true,
+        "target_yplus": [
+          30.0,
+          300.0
+        ],
+        "target_source": "explicit",
+        "provenance": "solver_result",
+        "yplus": {
+          "min": 0.334426,
+          "p05": 2.48584,
+          "median": 19.9494,
+          "p95": 26.3895,
+          "max": 26.5139,
+          "mean": 17.85571877021073,
+          "outside_area_fraction": 1.0,
+          "n_outside": 250,
+          "n_valid": 250
+        }
+      }
+    },
+    "evidence": [
+      {
+        "kind": "solver_result",
+        "path": "/home/foamuser/OpenFOAM/foamuser-12/run/pitzDailySteady-mesh-quality-20261004/286/yPlus",
+        "metric": "yPlus"
+      },
+      {
+        "kind": "solver_result",
+        "metric": "yPlus",
+        "wall": "upperWall"
+      },
+      {
+        "kind": "solver_result",
+        "metric": "yPlus",
+        "wall": "lowerWall"
+      }
+    ],
+    "missing": [
+      "缺少压降、流量或换热量的监测序列，无法复核结果稳定性",
+      "缺少至少三套网格的同一目标量结果，无法检查网格敏感性"
+    ],
+    "case_setup": {
+      "wall_field_types": {
+        "inlet": {
+          "nut": "calculated",
+          "omega": "fixedValue",
+          "epsilon": "fixedValue"
+        },
+        "outlet": {
+          "nut": "calculated",
+          "omega": "zeroGradient",
+          "epsilon": "zeroGradient"
+        },
+        "upperWall": {
+          "nut": "nutkWallFunction",
+          "omega": "omegaWallFunction",
+          "epsilon": "epsilonWallFunction"
+        },
+        "lowerWall": {
+          "nut": "nutkWallFunction",
+          "omega": "omegaWallFunction",
+          "epsilon": "epsilonWallFunction"
+        },
+        "frontAndBack": {
+          "nut": "empty",
+          "omega": "empty",
+          "epsilon": "empty"
+        }
+      },
+      "application": "foamRun",
+      "simulation_type": "RAS",
+      "turbulence_model": "kEpsilon",
+      "nu": 1e-05
+    },
+    "solution_checks": {
+      "mass_balance": {
+        "relative_imbalance": 2.9003104938477653e-05,
+        "tolerance": 0.01,
+        "basis": "volumetric_flux_m3_s"
+      }
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "high",
+      "metric": "yplus",
+      "issue": "壁面 upperWall 的 y⁺ 区间偏离",
+      "where": "壁面 upperWall",
+      "evidence": "极值 7.231；范围 223 / 223；筛查目标区间 30.0–300.0（工况显式指定）；按面积计算区间外比例 100.0%；证据 solver_result；单凭偏离不能判定求解失败",
+      "mesh_action": "壁面 upperWall 的 y⁺ 低于所设筛查下限；先核对当前 nutkWallFunction / epsilonWallFunction 的低 y⁺ 分支是否符合关注的壁面剪切、压降或换热目标。若需要把首层置于对数区，再按实际 y⁺ 分布增大首层法向距离，同时检查尺寸过渡与局部流动分辨率；不要仅为满足区间而直接放粗网格。",
+      "verification": "重新计算该壁面 yPlus，并比较壁面剪切、压降/换热量及其网格敏感性。"
+    },
+    {
+      "priority": "high",
+      "metric": "yplus",
+      "issue": "壁面 lowerWall 的 y⁺ 区间偏离",
+      "where": "壁面 lowerWall",
+      "evidence": "极值 26.39；范围 250 / 250；筛查目标区间 30.0–300.0（工况显式指定）；按面积计算区间外比例 100.0%；证据 solver_result；单凭偏离不能判定求解失败",
+      "mesh_action": "壁面 lowerWall 的 y⁺ 低于所设筛查下限；先核对当前 nutkWallFunction / epsilonWallFunction 的低 y⁺ 分支是否符合关注的壁面剪切、压降或换热目标。若需要把首层置于对数区，再按实际 y⁺ 分布增大首层法向距离，同时检查尺寸过渡与局部流动分辨率；不要仅为满足区间而直接放粗网格。",
+      "verification": "重新计算该壁面 yPlus，并比较壁面剪切、压降/换热量及其网格敏感性。"
+    }
+  ],
+  "readiness": "高风险指标待复核，关键结果证据不足",
+  "steps": [
+    {
+      "t": 0.0,
+      "msg": "识别网格来源：openfoam / case（找到 constant/polyMesh/{points,faces,owner}；存在 system/controlDict）",
+      "cmd": null,
+      "status": "ok"
+    },
+    {
+      "t": 0.04,
+      "msg": "使用已有 checkMesh 日志：/home/foamuser/OpenFOAM/foamuser-12/run/pitzDailySteady-mesh-quality-20261004/log.checkMesh",
+      "cmd": null,
+      "status": "ok"
+    },
+    {
+      "t": 0.05,
+      "msg": "用 Python 读取 polyMesh，计算各面/单元指标分布和位置",
+      "cmd": "polymesh.analyse(/home/foamuser/OpenFOAM/foamuser-12/run/pitzDailySteady-mesh-quality-20261004/constant/polyMesh)",
+      "status": "ok"
+    },
+    {
+      "t": 0.6,
+      "msg": "polyMesh 读取完成：12225 个单元，49180 个面",
+      "cmd": null,
+      "status": "ok"
+    }
+  ]
+}

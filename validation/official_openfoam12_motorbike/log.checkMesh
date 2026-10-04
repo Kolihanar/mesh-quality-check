@@ -1,0 +1,258 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 12-be08204b6af2
+Exec   : checkMesh -case /home/foamuser/OpenFOAM/foamuser-12/run/motorBikeSteady-layer-validation-20261004 -allGeometry -allTopology
+Date   : Oct 04 2026
+Time   : 18:01:10
+Host   : "OPENFOAM-VALIDATION-HOST"
+PID    : 164811
+I/O    : uncollated
+Case   : /home/foamuser/OpenFOAM/foamuser-12/run/motorBikeSteady-layer-validation-20261004
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create polyMesh for time = 0
+
+Enabling all (cell, face, edge, point) topology checks.
+
+Enabling all geometry checks.
+
+Time = 0s
+
+Mesh stats
+    points:           406140
+    faces:            1108744
+    internal faces:   1059085
+    cells:            353779
+    faces per cell:   6.12764
+    boundary patches: 72
+    point zones:      0
+    face zones:       0
+    cell zones:       0
+
+Overall number of cells of each type:
+    hexahedra:     307995
+    prisms:        7326
+    wedges:        1007
+    pyramids:      10
+    tet wedges:    1698
+    tetrahedra:    39
+    polyhedra:     35704
+    Breakdown of polyhedra by number of faces:
+        faces   number of cells
+            4   4030
+            5   6559
+            6   5471
+            7   3298
+            8   1405
+            9   10634
+           10   19
+           11   5
+           12   2344
+           13   1
+           14   1
+           15   1625
+           17   2
+           18   301
+           21   9
+
+Checking topology...
+    Boundary definition OK.
+    Cell to face addressing OK.
+    Point usage OK.
+    Upper triangular ordering OK.
+    Face vertices OK.
+    Topological cell zip-up check OK.
+  <<Number of duplicate (not baffle) faces found: 12. This might indicate a problem.
+  <<Number of faces with non-consecutive shared points: 29. This might indicate a problem.
+    Number of regions: 1 (OK).
+
+Checking patch topology for multiply connected surfaces...
+                   Patch    Faces   Points                  Surface topology
+            frontAndBack      360      420  ok (non-closed singly connected)
+                   inlet       72       90  ok (non-closed singly connected)
+                  outlet       72       90  ok (non-closed singly connected)
+               lowerWall     5341     5668  ok (non-closed singly connected)
+               upperWall      160      189  ok (non-closed singly connected)
+    motorBike_frt-fairing:001%1     5292     9590  multiply connected (shared edge)
+    motorBike_windshield:002%2       51       85  ok (non-closed singly connected)
+    motorBike_rr-wh-rim:005%5      127      213  ok (non-closed singly connected)
+    motorBike_rr-wh-rim:010%10      347      668  ok (non-closed singly connected)
+    motorBike_fr-wh-rim:011%11      492      820  ok (non-closed singly connected)
+    motorBike_fr-wh-brake-disk:012%12       42       87  ok (non-closed singly connected)
+    motorBike_frame:016-shadow%13      105      228  ok (non-closed singly connected)
+    motorBike_rear-susp:014%14      802     1469  ok (non-closed singly connected)
+    motorBike_rear-susp:014-shadow%15      452     1169  ok (non-closed singly connected)
+    motorBike_frame:016%16       61      167  ok (non-closed singly connected)
+    motorBike_rr-wh-rim:005-shadow%17       61      154  ok (non-closed singly connected)
+    motorBike_rr-wh-chain-hub:022%22      121      198  ok (non-closed singly connected)
+    motorBike_rearseat%24      393      478  ok (non-closed singly connected)
+    motorBike_frt-fairing%25      613      845  ok (non-closed singly connected)
+    motorBike_windshield%26      358      753  ok (non-closed singly connected)
+    motorBike_headlights%27      157      251  ok (non-closed singly connected)
+    motorBike_driversseat%28      360      537  ok (non-closed singly connected)
+    motorBike_rear-body%29     2037     2507  ok (non-closed singly connected)
+    motorBike_fuel-tank%30      873     1198  ok (non-closed singly connected)
+    motorBike_exhaust%31     2312     2975  ok (non-closed singly connected)
+    motorBike_rr-wh-rim%32     1352     1727  ok (non-closed singly connected)
+    motorBike_fr-mud-guard%33      636     1190  ok (non-closed singly connected)
+    motorBike_fr-wh-rim%34      557      784  ok (non-closed singly connected)
+    motorBike_fr-wh-brake-disk%35      424      664  ok (non-closed singly connected)
+    motorBike_fr-brake-caliper%36      155      207  ok (non-closed singly connected)
+    motorBike_fr-wh-tyre%37     1103     1539  ok (non-closed singly connected)
+      motorBike_hbars%38      509      664  multiply connected (shared edge)
+    motorBike_fr-forks%39     1078     1449  ok (non-closed singly connected)
+      motorBike_chain%40      452      573  ok (non-closed singly connected)
+    motorBike_rr-wh-tyre%41     1858     2436  ok (non-closed singly connected)
+    motorBike_square-dial%42        6       12  ok (non-closed singly connected)
+    motorBike_round-dial%43       15       29  ok (non-closed singly connected)
+    motorBike_dial-holder%44       83      129  ok (non-closed singly connected)
+    motorBike_rear-susp%45     1690     2143  ok (non-closed singly connected)
+    motorBike_rear-brake-lights%46       52       84  ok (non-closed singly connected)
+    motorBike_rear-light-bracket%47      157      204  ok (non-closed singly connected)
+      motorBike_frame%48     1959     2403  ok (non-closed singly connected)
+    motorBike_rear-mud-guard%49      653     1176  ok (non-closed singly connected)
+    motorBike_rear-susp-spring-damp%50       78      177  ok (non-closed singly connected)
+    motorBike_fairing-inner-plate%51      430      559  ok (non-closed singly connected)
+    motorBike_clutch-housing%52      899     1092  ok (non-closed singly connected)
+    motorBike_radiator%53       40       77  multiply connected (shared edge)
+    motorBike_water-pipe%54       89      111  multiply connected (shared edge)
+    motorBike_water-pump%55       73       99  ok (non-closed singly connected)
+     motorBike_engine%56     2261     2550  ok (non-closed singly connected)
+    motorBike_rear-shock-link%57       25       56  ok (non-closed singly connected)
+    motorBike_rear-brake-fluid-pot-bracket%58       35       70  ok (non-closed singly connected)
+    motorBike_rear-brake-fluid-pot%59       50       62  ok (non-closed singly connected)
+    motorBike_footpeg%60       88      125  ok (non-closed singly connected)
+    motorBike_rr-wh-chain-hub%61      117      237  ok (non-closed singly connected)
+    motorBike_rear-brake-caliper%62      134      164  ok (non-closed singly connected)
+    motorBike_rider-helmet%65      740      977  ok (non-closed singly connected)
+    motorBike_rider-visor%66      157      251  ok (non-closed singly connected)
+    motorBike_rider-boots%67     1004     1322  ok (non-closed singly connected)
+    motorBike_rider-gloves%68      308      396  ok (non-closed singly connected)
+    motorBike_rider-body%69     4560     5783  ok (non-closed singly connected)
+    motorBike_frame:0%70       37       60  ok (non-closed singly connected)
+    motorBike_frt-fairing:001-shadow%74     3309     8140  ok (non-closed singly connected)
+    motorBike_windshield-shadow%75      275      664  ok (non-closed singly connected)
+    motorBike_fr-mud-guard-shadow%81      346      908  ok (non-closed singly connected)
+    motorBike_fr-wh-brake-disk-shadow%83      204      509  ok (non-closed singly connected)
+    motorBike_rear-mud-guard-shadow%84      415     1020  ok (non-closed singly connected)
+    motorBike_rear-susp-spring-damp-shadow%85       46      120  ok (non-closed singly connected)
+    motorBike_radiator-shadow%86       33       73  multiply connected (shared edge)
+    motorBike_rear-shock-link-shadow%87       13       33  ok (non-closed singly connected)
+    motorBike_rear-brake-fluid-pot-bracket-shadow%88       30       69  ok (non-closed singly connected)
+    motorBike_rr-wh-chain-hub-shadow%89       63      170  ok (non-closed singly connected)
+
+Checking geometry...
+    Overall domain bounding box (-5 -4 0) (15 4 8)
+    Patch bounding boxes
+                frontAndBack (-5 -4 0) (15 4 8)
+                       inlet (-5 -4 0) (-5 4 8)
+                      outlet (15 -4 0) (15 4 8)
+                   lowerWall (-5 -4 0) (15 4 0)
+                   upperWall (-5 -4 8) (15 4 8)
+        motorBike_frt-fairing:001%1 (0.027823 -0.279892 0.145817) (1.1092 0.268269 1.05756)
+        motorBike_windshield:002%2 (-0.0268795 -0.0981603 0.885717) (0.0775484 0.0836514 0.979209)
+        motorBike_rr-wh-rim:005%5 (1.31399 0.0696045 0.186523) (1.55216 0.1104 0.42532)
+        motorBike_rr-wh-rim:010%10 (1.2009 -0.0989769 0.0776985) (1.65684 0.11701 0.53336)
+        motorBike_fr-wh-rim:011%11 (-0.217548 -0.124283 0.0679559) (0.244121 0.123325 0.529405)
+        motorBike_fr-wh-brake-disk:012%12 (-0.0365625 -0.0830206 0.248308) (0.0631388 0.0818559 0.348561)
+        motorBike_frame:016-shadow%13 (0.488555 -0.26044 0.62188) (0.702224 0.2418 0.734687)
+        motorBike_rear-susp:014%14 (0.81263 -0.179021 0.355005) (1.15063 0.177646 0.551798)
+        motorBike_rear-susp:014-shadow%15 (0.81942 -0.178437 0.355005) (1.14125 0.171917 0.551798)
+        motorBike_frame:016%16 (0.493818 -0.258242 0.637201) (0.684955 0.2418 0.735038)
+        motorBike_rr-wh-rim:005-shadow%17 (1.31399 0.0790295 0.188675) (1.55216 0.0992656 0.42532)
+        motorBike_rr-wh-chain-hub:022%22 (1.36565 -0.191072 0.236295) (1.50012 0.155533 0.372189)
+        motorBike_rearseat%24 (1.31991 -0.153684 0.920684) (1.64509 0.133768 1.012)
+        motorBike_frt-fairing%25 (-0.0816802 -0.276081 0.638414) (0.127322 0.262185 0.92853)
+        motorBike_windshield%26 (0.0422285 -0.169445 0.953619) (0.30874 0.152109 1.12096)
+        motorBike_headlights%27 (-0.076041 -0.249284 0.749859) (0.0779275 0.23602 0.895784)
+        motorBike_driversseat%28 (0.759467 -0.205358 0.655378) (1.32377 0.196409 0.879293)
+        motorBike_rear-body%29 (0.964975 -0.242308 0.616318) (1.74457 0.226476 1.01586)
+        motorBike_fuel-tank%30 (0.398358 -0.245005 0.750311) (0.948112 0.237463 1.0038)
+        motorBike_exhaust%31 (0.441773 -0.158915 0.140419) (1.75085 0.300859 0.784584)
+        motorBike_rr-wh-rim%32 (1.21882 -0.10845 0.0946959) (1.6424 0.0904863 0.515363)
+        motorBike_fr-mud-guard%33 (-0.158676 -0.121337 0.342211) (0.318944 0.118921 0.625066)
+        motorBike_fr-wh-rim%34 (-0.20037 -0.0383764 0.0857266) (0.226011 0.0377072 0.511838)
+        motorBike_fr-wh-brake-disk%35 (-0.137245 -0.0814996 0.154017) (0.156603 0.0809104 0.454824)
+        motorBike_fr-brake-caliper%36 (0.105333 -0.106091 0.283323) (0.170213 0.105203 0.39075)
+        motorBike_fr-wh-tyre%37 (-0.291576 -0.0868868 0) (0.318944 0.0845133 0.588373)
+          motorBike_hbars%38 (0.234905 -0.337536 0.763587) (0.419438 0.329352 0.965734)
+        motorBike_fr-forks%39 (-0.0189871 -0.141381 0.263124) (0.324501 0.124939 0.866451)
+          motorBike_chain%40 (0.729676 -0.154024 0.182081) (1.54371 -0.103892 0.474421)
+        motorBike_rr-wh-tyre%41 (1.12293 -0.130373 0) (1.74312 0.114164 0.615168)
+        motorBike_square-dial%42 (0.104093 -0.0617455 0.934436) (0.122655 -0.0141494 0.965087)
+        motorBike_round-dial%43 (0.105213 0.000762251 0.924149) (0.141051 0.0730971 0.985465)
+        motorBike_dial-holder%44 (0.0557274 -0.0807372 0.893189) (0.141051 0.0852614 0.999893)
+        motorBike_rear-susp%45 (0.804172 -0.191072 0.262121) (1.47819 0.186709 0.580039)
+        motorBike_rear-brake-lights%46 (1.70025 -0.100906 0.899842) (1.73338 0.0769118 0.98354)
+        motorBike_rear-light-bracket%47 (1.61479 -0.111318 0.863187) (1.72497 0.0928225 0.978176)
+          motorBike_frame%48 (0.271256 -0.241701 0.527779) (1.12881 0.240495 0.936909)
+        motorBike_rear-mud-guard%49 (1.12015 -0.157898 0.468382) (1.50394 0.143195 0.68288)
+        motorBike_rear-susp-spring-damp%50 (0.925951 -0.0328543 0.478274) (1.0644 0.0338055 0.582492)
+        motorBike_fairing-inner-plate%51 (0.0557274 -0.276081 0.630785) (0.131108 0.262185 0.981072)
+        motorBike_clutch-housing%52 (0.653809 -0.253549 0.395807) (0.859875 0.241752 0.601167)
+        motorBike_radiator%53 (0.302524 0.156602 0.390437) (0.407804 0.192085 0.671964)
+        motorBike_water-pipe%54 (0.403923 0.0692299 0.270847) (0.567471 0.206118 0.480407)
+        motorBike_water-pump%55 (0.52938 0.00363058 0.244896) (0.621592 0.0791687 0.327102)
+         motorBike_engine%56 (0.418867 -0.240957 0.203644) (0.819643 0.242382 0.70617)
+        motorBike_rear-shock-link%57 (0.932304 -0.0202057 0.556643) (1.04822 0.0250708 0.608544)
+        motorBike_rear-brake-fluid-pot-bracket%58 (1.04282 0.0828453 0.634477) (1.13077 0.11317 0.705489)
+        motorBike_rear-brake-fluid-pot%59 (0.981384 0.0765108 0.626232) (1.04957 0.133932 0.677797)
+        motorBike_footpeg%60 (1.00931 -0.291967 0.361344) (1.05925 0.285288 0.409333)
+        motorBike_rr-wh-chain-hub%61 (1.32581 -0.144663 0.199981) (1.52982 -0.101731 0.39756)
+        motorBike_rear-brake-caliper%62 (1.34043 0.0711374 0.168591) (1.46721 0.149842 0.274298)
+        motorBike_rider-helmet%65 (0.348365 -0.142748 1.00111) (0.640742 0.118483 1.35139)
+        motorBike_rider-visor%66 (0.363259 -0.142748 1.0317) (0.51646 0.118483 1.21918)
+        motorBike_rider-boots%67 (0.90661 -0.318168 0.36152) (1.20756 0.30385 0.727629)
+        motorBike_rider-gloves%68 (0.30772 -0.330288 0.794669) (0.490986 0.304789 0.906596)
+        motorBike_rider-body%69 (0.467949 -0.349764 0.598336) (1.26862 0.332043 1.24885)
+        motorBike_frame:0%70 (0.809381 -0.18906 0.55774) (0.939397 -0.147967 0.656918)
+        motorBike_frt-fairing:001-shadow%74 (0.0279358 -0.279631 0.145817) (1.1092 0.268269 1.05756)
+        motorBike_windshield-shadow%75 (0.0423014 -0.172636 0.964013) (0.30874 0.152109 1.12096)
+        motorBike_fr-mud-guard-shadow%81 (-0.156258 -0.120439 0.350276) (0.318944 0.118921 0.625066)
+        motorBike_fr-wh-brake-disk-shadow%83 (-0.137245 -0.0803949 0.154017) (0.15688 0.0818939 0.447591)
+        motorBike_rear-mud-guard-shadow%84 (1.12016 -0.15803 0.470402) (1.50331 0.143195 0.68288)
+        motorBike_rear-susp-spring-damp-shadow%85 (0.921652 -0.0285497 0.482105) (1.05377 0.032565 0.567133)
+        motorBike_radiator-shadow%86 (0.31036 0.157341 0.39464) (0.407804 0.17371 0.66851)
+        motorBike_rear-shock-link-shadow%87 (0.949712 -0.0109631 0.559907) (1.03957 0.0250708 0.591791)
+        motorBike_rear-brake-fluid-pot-bracket-shadow%88 (1.04342 0.0828453 0.634477) (1.13065 0.11317 0.720904)
+        motorBike_rr-wh-chain-hub-shadow%89 (1.32581 -0.144663 0.205801) (1.52302 -0.107904 0.40213)
+    Mesh has 3 geometric (non-empty/wedge) directions (1 1 1)
+    Mesh has 3 solution (non-empty) directions (1 1 1)
+    Max cell openness = 7.62931e-16 OK.
+    Max aspect ratio = 40.9152 OK.
+    Minimum face area = 7.58051e-07. Maximum face area = 1.0144.  Face area magnitudes OK.
+    Min volume = 1.3552e-08. Max volume = 1.00558.  Total volume = 1279.67.  Cell volumes OK.
+    Mesh non-orthogonality Max: 64.9897 average: 9.98617
+    Non-orthogonality check OK.
+    Face pyramids OK.
+ ***Max skewness = 9.57634, 15 highly skew faces detected which may impair the quality of the results
+    Coupled point location match (average 0) OK.
+    Face tets OK.
+    Min/max edge length = 0.00034157 1.01586 OK.
+   *There are 1784 faces with concave angles between consecutive edges. Max concave angle = 79.9595 degrees.
+    Face flatness (1 = flat, 0 = butterfly) : min = 0.257275  average = 0.998436
+   *There are 286 faces with ratio between projected and actual area < 0.8
+    Minimum ratio (minimum flatness, maximum warpage) = 0.257275
+    Cell determinant (wellposedness) : minimum: 0 average: 12.4758
+ ***Cells with small determinant (< 0.001) found, number of cells: 73
+ ***Concave cells (using face planes) found, number of cells: 15226
+    Face interpolation weight : minimum: 0.0224494 average: 0.46544
+ ***Faces with small interpolation weight (< 0.05) found, number of faces: 996
+    Face volume ratio : minimum: 0.0100542 average: 0.844926
+    Face volume ratio check OK.
+
+Failed 4 mesh checks.
+
+End
+

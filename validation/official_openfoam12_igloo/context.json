@@ -1,0 +1,11 @@
+{
+  "flow": {
+    "turbulence_model": "kEpsilon",
+    "heat_transfer": true
+  },
+  "walls": {
+    "igloo": {"target_layers": 1, "min_layer_coverage": 0.95},
+    "twoFridgeFreezers_seal_0": {"target_layers": 3, "min_layer_coverage": 0.95},
+    "twoFridgeFreezers_herring_1": {"target_layers": 3, "min_layer_coverage": 0.95}
+  }
+}

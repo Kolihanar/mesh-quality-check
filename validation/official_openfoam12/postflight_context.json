@@ -1,0 +1,16 @@
+{
+  "flow": {
+    "turbulence_model": "kEpsilon",
+    "constant_density": true
+  },
+  "wall_defaults": {
+    "treatment": "standard_wall_function",
+    "target_yplus": [30, 300]
+  },
+  "results": {
+    "volumetric_flux_m3_s": {
+      "inlet": -0.00025399992,
+      "outlet": 0.000254007287
+    }
+  }
+}

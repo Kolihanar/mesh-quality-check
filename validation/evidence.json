@@ -1,0 +1,203 @@
+{
+  "regression": [
+    {
+      "case": "samples/of_good_3d",
+      "source": "openfoam",
+      "expected": "ok",
+      "observed": "ok",
+      "status": "match",
+      "required_findings": [],
+      "observed_findings": []
+    },
+    {
+      "case": "samples/of_sheared_2d",
+      "source": "openfoam",
+      "expected": "high",
+      "observed": "high",
+      "status": "match",
+      "required_findings": [
+        "non_orthogonality"
+      ],
+      "observed_findings": [
+        "near_wall_nonortho",
+        "non_orthogonality"
+      ]
+    },
+    {
+      "case": "samples/of_distorted_2d",
+      "source": "openfoam",
+      "expected": "critical",
+      "observed": "critical",
+      "status": "match",
+      "required_findings": [
+        "negative_volume"
+      ],
+      "observed_findings": [
+        "near_wall_nonortho",
+        "negative_volume",
+        "non_orthogonality"
+      ]
+    },
+    {
+      "case": "samples/of_inverted_3d",
+      "source": "openfoam",
+      "expected": "critical",
+      "observed": "critical",
+      "status": "match",
+      "required_findings": [
+        "negative_volume"
+      ],
+      "observed_findings": [
+        "negative_volume",
+        "non_orthogonality"
+      ]
+    },
+    {
+      "case": "logs/checkMesh_ok.log",
+      "source": "openfoam",
+      "expected": "ok",
+      "observed": "ok",
+      "status": "match",
+      "required_findings": [],
+      "observed_findings": []
+    },
+    {
+      "case": "logs/checkMesh_failed.log",
+      "source": "openfoam",
+      "expected": "high",
+      "observed": "high",
+      "status": "match",
+      "required_findings": [
+        "multiple_regions",
+        "non_orthogonality",
+        "skewness",
+        "aspect_ratio",
+        "cell_determinant",
+        "concave_cells"
+      ],
+      "observed_findings": [
+        "aspect_ratio",
+        "cell_determinant",
+        "concave_cells",
+        "multiple_regions",
+        "native_mesh_checks_failed",
+        "non_orthogonality",
+        "skewness"
+      ]
+    },
+    {
+      "case": "logs/fluent_transcript.trn",
+      "source": "fluent",
+      "expected": "high",
+      "observed": "high",
+      "status": "match",
+      "required_findings": [
+        "orthogonal_quality",
+        "skewness"
+      ],
+      "observed_findings": [
+        "orthogonal_quality",
+        "skewness"
+      ]
+    },
+    {
+      "case": "samples/fluent_ascii.msh",
+      "source": "fluent",
+      "expected": "ok",
+      "observed": null,
+      "status": "unavailable",
+      "reason": "meshio/pyvista 未安装"
+    },
+    {
+      "case": "samples/gmsh_box_sliver.msh",
+      "source": "gmsh",
+      "expected": "high",
+      "observed": null,
+      "status": "unavailable",
+      "reason": "meshio/pyvista 未安装"
+    },
+    {
+      "case": "samples/hex_block.vtu",
+      "source": "generic",
+      "expected": "ok",
+      "observed": null,
+      "status": "unavailable",
+      "reason": "meshio/pyvista 未安装"
+    }
+  ],
+  "cfd_demo": {
+    "fixture": "tests/samples/of_good_3d",
+    "wall_patch": "walls",
+    "n_wall_faces": 432,
+    "synthetic_yplus": {
+      "values": {
+        "first_100_faces": 100,
+        "remaining_faces": 1
+      },
+      "finding": {
+        "metric": "yplus",
+        "name_zh": "壁面 walls 的 y⁺ 与壁面处理匹配",
+        "category": "quality",
+        "value": 100.0,
+        "stat": "p95",
+        "unit": "",
+        "severity": "high",
+        "severity_zh": "高风险",
+        "n_bad": 100,
+        "n_total": 432,
+        "total_kind": "壁面面",
+        "fraction": 0.23148148148148148,
+        "scope": "widespread",
+        "scope_zh": "大面积",
+        "location": {
+          "near_patches": [
+            {
+              "patch": "walls",
+              "count": 100
+            }
+          ],
+          "bbox_min": [
+            0.08333333335,
+            0.0,
+            0.06249999999999999
+          ],
+          "bbox_max": [
+            1.9166666664999998,
+            1.0,
+            0.9375000000000001
+          ]
+        },
+        "raw": null,
+        "definition": "目标区间 0.0–2.0；按面积计算超标比例 26.0%；证据 solver_result",
+        "threshold": null,
+        "advice": []
+      },
+      "outside_area_fraction": 0.2604166666671875
+    },
+    "synthetic_layers": {
+      "zero_layer": {
+        "min": 0,
+        "max": 12,
+        "coverage_area_fraction": 0.84375,
+        "n_covered": 372,
+        "n_faces": 432,
+        "mean": 10.125,
+        "under_target_area_fraction": 0.15624999999999994,
+        "n_under_target": 60
+      },
+      "shallow_layer": {
+        "min": 6,
+        "max": 12,
+        "coverage_area_fraction": 1.0,
+        "n_covered": 432,
+        "n_faces": 432,
+        "mean": 11.0625,
+        "under_target_area_fraction": 0.15624999999999994,
+        "n_under_target": 60
+      },
+      "coverage_target": 0.9,
+      "layer_target": 12
+    }
+  },
+  "interpretation": "Regression fixtures and synthetic CFD fields; no real OpenFOAM solver case was run."
+}

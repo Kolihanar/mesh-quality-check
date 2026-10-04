@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="511.2pt" height="396.848pt" viewBox="0 0 511.2 396.848" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-04T16:06:12.083414</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 396.848 
+L 511.2 396.848 
+L 511.2 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 139.68 351.862625 
+L 504 351.862625 
+L 504 51.190625 
+L 139.68 51.190625 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 165.1824 54.498017 
+L 296.3376 54.498017 
+L 296.3376 77.950433 
+L 165.1824 77.950433 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #0072b2; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 347.3424 54.498017 
+L 478.4976 54.498017 
+L 478.4976 77.950433 
+L 347.3424 77.950433 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #0072b2; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 165.1824 84.565217 
+L 296.3376 84.565217 
+L 296.3376 108.017633 
+L 165.1824 108.017633 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #d55e00; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 347.3424 84.565217 
+L 478.4976 84.565217 
+L 478.4976 108.017633 
+L 347.3424 108.017633 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #d55e00; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 165.1824 114.632417 
+L 296.3376 114.632417 
+L 296.3376 138.084833 
+L 165.1824 138.084833 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #6c4e9b; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 347.3424 114.632417 
+L 478.4976 114.632417 
+L 478.4976 138.084833 
+L 347.3424 138.084833 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #6c4e9b; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 165.1824 144.699617 
+L 296.3376 144.699617 
+L 296.3376 168.152033 
+L 165.1824 168.152033 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #6c4e9b; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 347.3424 144.699617 
+L 478.4976 144.699617 
+L 478.4976 168.152033 
+L 347.3424 168.152033 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #6c4e9b; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 165.1824 174.766817 
+L 296.3376 174.766817 
+L 296.3376 198.219233 
+L 165.1824 198.219233 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #0072b2; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 347.3424 174.766817 
+L 478.4976 174.766817 
+L 478.4976 198.219233 
+L 347.3424 198.219233 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #0072b2; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 165.1824 204.834017 
+L 296.3376 204.834017 
+L 296.3376 228.286433 
+L 165.1824 228.286433 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #d55e00; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 347.3424 204.834017 
+L 478.4976 204.834017 
+L 478.4976 228.286433 
+L 347.3424 228.286433 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #d55e00; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 165.1824 234.901217 
+L 296.3376 234.901217 
+L 296.3376 258.353633 
+L 165.1824 258.353633 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #d55e00; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 347.3424 234.901217 
+L 478.4976 234.901217 
+L 478.4976 258.353633 
+L 347.3424 258.353633 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #d55e00; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 165.1824 264.968417 
+L 296.3376 264.968417 
+L 296.3376 288.420833 
+L 165.1824 288.420833 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #0072b2; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 347.3424 264.968417 
+L 478.4976 264.968417 
+L 478.4976 288.420833 
+L 347.3424 288.420833 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #b8bec5; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 165.1824 295.035617 
+L 296.3376 295.035617 
+L 296.3376 318.488033 
+L 165.1824 318.488033 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #d55e00; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_20">
+    <path d="M 347.3424 295.035617 
+L 478.4976 295.035617 
+L 478.4976 318.488033 
+L 347.3424 318.488033 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #b8bec5; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_21">
+    <path d="M 165.1824 325.102817 
+L 296.3376 325.102817 
+L 296.3376 348.555233 
+L 165.1824 348.555233 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #0072b2; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_22">
+    <path d="M 347.3424 325.102817 
+L 478.4976 325.102817 
+L 478.4976 348.555233 
+L 347.3424 348.555233 
+z
+" clip-path="url(#p04e60017ac)" style="fill: #b8bec5; stroke: #ffffff; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font: 10px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="230.76" y="42.704688" transform="rotate(-0 230.76 42.704688)">预期分级</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font: 10px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="412.92" y="42.704688" transform="rotate(-0 412.92 42.704688)">实际分级</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font: 10px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: end" x="133.68" y="70.2211" transform="rotate(-0 133.68 70.2211)">good_3d</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_4"/>
+     <g id="text_4">
+      <text style="font: 10px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: end" x="133.68" y="100.2883" transform="rotate(-0 133.68 100.2883)">sheared_2d</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_5"/>
+     <g id="text_5">
+      <text style="font: 10px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: end" x="133.68" y="130.3555" transform="rotate(-0 133.68 130.3555)">distorted_2d</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_6"/>
+     <g id="text_6">
+      <text style="font: 10px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: end" x="133.68" y="160.4227" transform="rotate(-0 133.68 160.4227)">inverted_3d</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_7"/>
+     <g id="text_7">
+      <text style="font: 10px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: end" x="133.68" y="190.665681" transform="rotate(-0 133.68 190.665681)">checkMesh_ok 日志</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_8"/>
+     <g id="text_8">
+      <text style="font: 10px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: end" x="133.68" y="220.732881" transform="rotate(-0 133.68 220.732881)">checkMesh_failed 日志</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_9"/>
+     <g id="text_9">
+      <text style="font: 10px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: end" x="133.68" y="250.800081" transform="rotate(-0 133.68 250.800081)">fluent_transcript 日志</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_10"/>
+     <g id="text_10">
+      <text style="font: 10px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: end" x="133.68" y="280.750094" transform="rotate(-0 133.68 280.750094)">fluent_ascii.msh</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_11"/>
+     <g id="text_11">
+      <text style="font: 10px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: end" x="133.68" y="310.7587" transform="rotate(-0 133.68 310.7587)">gmsh_box_sliver.msh</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_12"/>
+     <g id="text_12">
+      <text style="font: 10px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: end" x="133.68" y="340.8259" transform="rotate(-0 133.68 340.8259)">hex_block.vtu</text>
+     </g>
+    </g>
+   </g>
+   <g id="text_13">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="230.76" y="68.702741" transform="rotate(-0 230.76 68.702741)">正常</text>
+   </g>
+   <g id="text_14">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="412.92" y="68.702741" transform="rotate(-0 412.92 68.702741)">正常</text>
+   </g>
+   <g id="text_15">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="230.76" y="98.769941" transform="rotate(-0 230.76 98.769941)">高风险</text>
+   </g>
+   <g id="text_16">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="412.92" y="98.769941" transform="rotate(-0 412.92 98.769941)">高风险</text>
+   </g>
+   <g id="text_17">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="230.76" y="128.837141" transform="rotate(-0 230.76 128.837141)">致命</text>
+   </g>
+   <g id="text_18">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="412.92" y="128.837141" transform="rotate(-0 412.92 128.837141)">致命</text>
+   </g>
+   <g id="text_19">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="230.76" y="158.904341" transform="rotate(-0 230.76 158.904341)">致命</text>
+   </g>
+   <g id="text_20">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="412.92" y="158.904341" transform="rotate(-0 412.92 158.904341)">致命</text>
+   </g>
+   <g id="text_21">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="230.76" y="188.971541" transform="rotate(-0 230.76 188.971541)">正常</text>
+   </g>
+   <g id="text_22">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="412.92" y="188.971541" transform="rotate(-0 412.92 188.971541)">正常</text>
+   </g>
+   <g id="text_23">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="230.76" y="219.038741" transform="rotate(-0 230.76 219.038741)">高风险</text>
+   </g>
+   <g id="text_24">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="412.92" y="219.038741" transform="rotate(-0 412.92 219.038741)">高风险</text>
+   </g>
+   <g id="text_25">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="230.76" y="249.105941" transform="rotate(-0 230.76 249.105941)">高风险</text>
+   </g>
+   <g id="text_26">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="412.92" y="249.105941" transform="rotate(-0 412.92 249.105941)">高风险</text>
+   </g>
+   <g id="text_27">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="230.76" y="279.173141" transform="rotate(-0 230.76 279.173141)">正常</text>
+   </g>
+   <g id="text_28">
+    <text style="fill: #263238; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="412.92" y="279.173141" transform="rotate(-0 412.92 279.173141)">未运行</text>
+   </g>
+   <g id="text_29">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="230.76" y="309.240341" transform="rotate(-0 230.76 309.240341)">高风险</text>
+   </g>
+   <g id="text_30">
+    <text style="fill: #263238; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="412.92" y="309.240341" transform="rotate(-0 412.92 309.240341)">未运行</text>
+   </g>
+   <g id="text_31">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="230.76" y="339.307541" transform="rotate(-0 230.76 339.307541)">正常</text>
+   </g>
+   <g id="text_32">
+    <text style="fill: #263238; font: 700 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="412.92" y="339.307541" transform="rotate(-0 412.92 339.307541)">未运行</text>
+   </g>
+   <g id="text_33">
+    <text style="font: 700 15px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: start" x="139.68" y="19.190625" transform="rotate(-0 139.68 19.190625)">回归样例：可运行场景 7/7 与预期一致</text>
+   </g>
+  </g>
+  <g id="text_34">
+   <text style="fill: #4e5964; font: 9px 'Microsoft YaHei', 'SimHei', 'DejaVu Sans', sans-serif; text-anchor: start" x="7.2" y="387.358625" transform="rotate(-0 7.2 387.358625)">共 10 个预设样例；灰色 3 项因 meshio / pyvista 未安装而未运行。此图不是工程算例检出率。</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p04e60017ac">
+   <rect x="139.68" y="51.190625" width="364.32" height="300.672"/>
+  </clipPath>
+ </defs>
+</svg>

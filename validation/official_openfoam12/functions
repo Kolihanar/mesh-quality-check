@@ -1,0 +1,53 @@
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    location "system";
+    object validationFunctions;
+}
+
+    inletFlow
+    {
+        type surfaceFieldValue;
+        libs ("libfieldFunctionObjects.so");
+        writeControl writeTime;
+        writeFields false;
+        select patch;
+        name inlet;
+        operation sum;
+        fields (phi);
+    }
+    outletFlow
+    {
+        type surfaceFieldValue;
+        libs ("libfieldFunctionObjects.so");
+        writeControl writeTime;
+        writeFields false;
+        select patch;
+        name outlet;
+        operation sum;
+        fields (phi);
+    }
+    inletPressure
+    {
+        type surfaceFieldValue;
+        libs ("libfieldFunctionObjects.so");
+        writeControl writeTime;
+        writeFields false;
+        select patch;
+        name inlet;
+        operation areaAverage;
+        fields (p);
+    }
+    outletPressure
+    {
+        type surfaceFieldValue;
+        libs ("libfieldFunctionObjects.so");
+        writeControl writeTime;
+        writeFields false;
+        select patch;
+        name outlet;
+        operation areaAverage;
+        fields (p);
+    }

@@ -1,0 +1,839 @@
+{
+  "generated": "2026-10-04 19:00:00",
+  "input": "/home/foamuser/OpenFOAM/foamuser-12/run/pitzDailySteady-grid-fine-monitored-20261004",
+  "detection": {
+    "source": "openfoam",
+    "kind": "case",
+    "path": "/home/foamuser/OpenFOAM/foamuser-12/run/pitzDailySteady-grid-fine-monitored-20261004",
+    "polymesh": "/home/foamuser/OpenFOAM/foamuser-12/run/pitzDailySteady-grid-fine-monitored-20261004/constant/polyMesh",
+    "evidence": [
+      "找到 constant/polyMesh/{points,faces,owner}",
+      "存在 system/controlDict"
+    ]
+  },
+  "overall": "high",
+  "overall_zh": "高风险",
+  "source": "openfoam",
+  "input_kind": "case",
+  "mesh_info": {
+    "n_points": 56250,
+    "n_faces": 111233,
+    "n_internal_faces": 54985,
+    "n_cells": 27703,
+    "version": "12",
+    "cell_types": {
+      "hexahedra": 27703
+    },
+    "n_dims": 2,
+    "bounds": [
+      [
+        -0.0206,
+        -0.0254,
+        -0.0005
+      ],
+      [
+        0.29,
+        0.0254,
+        0.0005
+      ]
+    ],
+    "patches": [
+      {
+        "name": "inlet",
+        "type": "patch",
+        "nFaces": 45
+      },
+      {
+        "name": "outlet",
+        "type": "patch",
+        "nFaces": 86
+      },
+      {
+        "name": "upperWall",
+        "type": "wall",
+        "nFaces": 335
+      },
+      {
+        "name": "lowerWall",
+        "type": "wall",
+        "nFaces": 376
+      },
+      {
+        "name": "frontAndBack",
+        "type": "empty",
+        "nFaces": 55406
+      }
+    ],
+    "face_sizes": {
+      "4": 111233
+    },
+    "cell_volume": {
+      "min": 7.29728e-11,
+      "max": 1.71299e-09
+    }
+  },
+  "findings": [
+    {
+      "metric": "non_orthogonality",
+      "name_zh": "非正交性",
+      "category": "quality",
+      "value": 5.961,
+      "stat": "max",
+      "unit": "°",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 54985,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "面法向与相邻单元中心连线的夹角（仅内部面），0° 为理想",
+      "threshold": {
+        "direction": "max",
+        "moderate": 65,
+        "high": 70,
+        "critical": 85
+      },
+      "advice": [],
+      "average": 1.68319,
+      "distribution": {
+        ">50°": 0,
+        ">65°": 0,
+        ">70°": 0,
+        ">80°": 0
+      }
+    },
+    {
+      "metric": "skewness",
+      "name_zh": "歪斜度（OpenFOAM 定义）",
+      "category": "quality",
+      "value": 0.261,
+      "stat": "max",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 111233,
+      "total_kind": "面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "面中心相对两单元中心连线交点的偏移，按面尺寸归一化；无上界，0 为理想",
+      "threshold": {
+        "direction": "max",
+        "moderate": 2.5,
+        "high": 4,
+        "critical": 20
+      },
+      "advice": [],
+      "distribution": {
+        ">1": 0,
+        ">2.5": 0,
+        ">4": 0,
+        ">10": 0
+      }
+    },
+    {
+      "metric": "aspect_ratio",
+      "name_zh": "长宽比",
+      "category": "quality",
+      "value": 8.303,
+      "stat": "max",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 27703,
+      "total_kind": "单元",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "OpenFOAM cellAspectRatio，1 为理想",
+      "threshold": {
+        "direction": "max",
+        "moderate": 1000,
+        "high": 10000,
+        "critical": null
+      },
+      "advice": []
+    },
+    {
+      "metric": "cell_determinant",
+      "name_zh": "单元行列式",
+      "category": "quality",
+      "value": 0.0117334,
+      "stat": "min",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 27703,
+      "total_kind": "单元",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": null,
+      "threshold": {
+        "direction": "min",
+        "moderate": 0.01,
+        "high": 0.001,
+        "critical": null
+      },
+      "advice": []
+    },
+    {
+      "metric": "interpolation_weight",
+      "name_zh": "面插值权重",
+      "category": "quality",
+      "value": 0.40018,
+      "stat": "min",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 54985,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": null,
+      "threshold": {
+        "direction": "min",
+        "moderate": 0.05,
+        "high": 0.02,
+        "critical": null
+      },
+      "advice": []
+    },
+    {
+      "metric": "volume_ratio",
+      "name_zh": "相邻单元体积比",
+      "category": "quality",
+      "value": 0.666901,
+      "stat": "min",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 54985,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": null,
+      "threshold": {
+        "direction": "min",
+        "moderate": 0.01,
+        "high": 0.001,
+        "critical": null
+      },
+      "advice": []
+    },
+    {
+      "metric": "near_wall_nonortho",
+      "name_zh": "壁面 upperWall 的近壁内部面非正交角",
+      "category": "quality",
+      "value": 5.9609,
+      "stat": "max",
+      "unit": "°",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 669,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "near_wall_skew",
+      "name_zh": "壁面 upperWall 的近壁内部面歪斜度",
+      "category": "quality",
+      "value": 0.1306,
+      "stat": "max",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 669,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "yplus",
+      "name_zh": "壁面 upperWall 的 y⁺ 区间偏离",
+      "category": "quality",
+      "value": 5.531,
+      "stat": "p95",
+      "unit": "",
+      "severity": "high",
+      "severity_zh": "高风险",
+      "n_bad": 335,
+      "n_total": 335,
+      "total_kind": "壁面面",
+      "fraction": 1.0,
+      "scope": "widespread",
+      "scope_zh": "大面积",
+      "location": {
+        "near_patches": [
+          {
+            "patch": "upperWall",
+            "count": 335
+          }
+        ],
+        "bbox_min": [
+          -0.02007196131,
+          0.01677649874,
+          0.0
+        ],
+        "bbox_max": [
+          0.28831523929999997,
+          0.025400000000000002,
+          0.0
+        ]
+      },
+      "raw": null,
+      "definition": "筛查目标区间 30.0–300.0（工况显式指定）；按面积计算区间外比例 100.0%；证据 solver_result；单凭偏离不能判定求解失败",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "near_wall_nonortho",
+      "name_zh": "壁面 lowerWall 的近壁内部面非正交角",
+      "category": "quality",
+      "value": 5.9082,
+      "stat": "max",
+      "unit": "°",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 749,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "near_wall_skew",
+      "name_zh": "壁面 lowerWall 的近壁内部面歪斜度",
+      "category": "quality",
+      "value": 0.1154,
+      "stat": "max",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 749,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "yplus",
+      "name_zh": "壁面 lowerWall 的 y⁺ 区间偏离",
+      "category": "quality",
+      "value": 16.325,
+      "stat": "p95",
+      "unit": "",
+      "severity": "high",
+      "severity_zh": "高风险",
+      "n_bad": 376,
+      "n_total": 376,
+      "total_kind": "壁面面",
+      "fraction": 1.0,
+      "scope": "widespread",
+      "scope_zh": "大面积",
+      "location": {
+        "near_patches": [
+          {
+            "patch": "lowerWall",
+            "count": 376
+          }
+        ],
+        "bbox_min": [
+          -0.020071961309999997,
+          -0.025400000000000002,
+          0.0
+        ],
+        "bbox_max": [
+          0.2883152393,
+          0.0,
+          0.0
+        ]
+      },
+      "raw": null,
+      "definition": "筛查目标区间 30.0–300.0（工况显式指定）；按面积计算区间外比例 100.0%；证据 solver_result；单凭偏离不能判定求解失败",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "mass_balance",
+      "name_zh": "稳态质量守恒",
+      "category": "quality",
+      "value": 4.055118110231773e-05,
+      "stat": "relative",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": null,
+      "n_total": null,
+      "total_kind": "单元",
+      "fraction": null,
+      "scope": null,
+      "scope_zh": "未知（只有极值）",
+      "location": null,
+      "raw": null,
+      "definition": "恒密度不可压缩流：各边界体积通量按外法向有符号求和，除以较大的流入/流出总量",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "monitor_drift",
+      "name_zh": "监测量 kinematic_pressure_difference_m2_s2_coarse 的末段漂移",
+      "category": "quality",
+      "value": 0.02030929163706181,
+      "stat": null,
+      "unit": "",
+      "severity": "high",
+      "severity_zh": "高风险",
+      "n_bad": null,
+      "n_total": null,
+      "total_kind": "单元",
+      "fraction": null,
+      "scope": null,
+      "scope_zh": "未知（只有极值）",
+      "location": null,
+      "raw": null,
+      "definition": "比较末尾两个等长窗口的均值；监测量稳定不单独证明网格无关",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "monitor_drift",
+      "name_zh": "监测量 kinematic_pressure_difference_m2_s2_medium 的末段漂移",
+      "category": "quality",
+      "value": 0.06485700276453174,
+      "stat": null,
+      "unit": "",
+      "severity": "high",
+      "severity_zh": "高风险",
+      "n_bad": null,
+      "n_total": null,
+      "total_kind": "单元",
+      "fraction": null,
+      "scope": null,
+      "scope_zh": "未知（只有极值）",
+      "location": null,
+      "raw": null,
+      "definition": "比较末尾两个等长窗口的均值；监测量稳定不单独证明网格无关",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "monitor_drift",
+      "name_zh": "监测量 kinematic_pressure_difference_m2_s2_fine 的末段漂移",
+      "category": "quality",
+      "value": 0.08207941570109276,
+      "stat": null,
+      "unit": "",
+      "severity": "high",
+      "severity_zh": "高风险",
+      "n_bad": null,
+      "n_total": null,
+      "total_kind": "单元",
+      "fraction": null,
+      "scope": null,
+      "scope_zh": "未知（只有极值）",
+      "location": null,
+      "raw": null,
+      "definition": "比较末尾两个等长窗口的均值；监测量稳定不单独证明网格无关",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "grid_sensitivity",
+      "name_zh": "目标量 kinematic_pressure_difference_m2_s2 的网格敏感性",
+      "category": "quality",
+      "value": 0.12803870842636536,
+      "stat": null,
+      "unit": "",
+      "severity": "high",
+      "severity_zh": "高风险",
+      "n_bad": null,
+      "n_total": null,
+      "total_kind": "单元",
+      "fraction": null,
+      "scope": null,
+      "scope_zh": "未知（只有极值）",
+      "location": null,
+      "raw": null,
+      "definition": "细/中网格目标量相对变化；需要同一物理模型和边界条件，未据此推断严格误差界；相关监测量末段仍在漂移，网格敏感性比较暂为初步结果，需先使各网格目标量稳定",
+      "threshold": null,
+      "advice": []
+    }
+  ],
+  "extra": {
+    "checkmesh_verdict": "Mesh OK",
+    "checkmesh_flagged_lines": []
+  },
+  "limitations": [
+    "位置/分布统计来自本工具按 OpenFOAM 公式的独立计算，数值可能与 checkMesh 有微小差别；严重程度以 checkMesh 数值为准。",
+    "二维网格（含 empty 面）：长宽比只在求解方向上计算。"
+  ],
+  "visualize_hint": "checkMesh 会把坏面/坏单元写成集合（如 nonOrthoFaces、skewFaces）。用 `foamToVTK -faceSet nonOrthoFaces`（单元集合用 -cellSet）转成 VTK，或 ESI 版直接用 `checkMesh -allGeometry -allTopology -writeSets vtk`，在 ParaView 中查看。",
+  "cfd": {
+    "profile": "OpenFOAM 单相 RANS 内流",
+    "wall_geometry": {
+      "upperWall": {
+        "n_faces": 335,
+        "measured_faces": 335,
+        "distance_min": 5.548099034270267e-05,
+        "distance_p05": 7.144458926723585e-05,
+        "distance_median": 0.00012383409576342472,
+        "distance_p95": 0.0001452103199999985,
+        "distance_max": 0.00014521032000000197,
+        "normal_to_tangential_scale_p95": 0.4626301820756775,
+        "first_cell_aspect_p95": 7.182940782507455,
+        "near_wall_internal_faces": 669,
+        "near_wall_nonortho_max": 5.9608574618887324,
+        "near_wall_nonortho_p95": 5.960857088100032,
+        "near_wall_nonortho_over70": 0,
+        "near_wall_nonortho_over65": 0,
+        "near_wall_skew_max": 0.13064625020781448,
+        "near_wall_skew_p95": 0.0010704099847287844,
+        "near_wall_skew_over4": 0,
+        "near_wall_skew_over2_5": 0
+      },
+      "lowerWall": {
+        "n_faces": 376,
+        "measured_faces": 376,
+        "distance_min": 0.00010330775704999998,
+        "distance_p05": 0.00010330775705,
+        "distance_median": 0.0003365283032939932,
+        "distance_p95": 0.00036610086525176114,
+        "distance_max": 0.0003680660322559412,
+        "normal_to_tangential_scale_p95": 1.1753168878016167,
+        "first_cell_aspect_p95": 3.7610844167251742,
+        "near_wall_internal_faces": 749,
+        "near_wall_nonortho_max": 5.908184629754954,
+        "near_wall_nonortho_p95": 5.835751395193147,
+        "near_wall_nonortho_over70": 0,
+        "near_wall_nonortho_over65": 0,
+        "near_wall_skew_max": 0.11535867011206462,
+        "near_wall_skew_p95": 0.0009756446879711058,
+        "near_wall_skew_over4": 0,
+        "near_wall_skew_over2_5": 0
+      }
+    },
+    "wall_checks": {
+      "upperWall": {
+        "treatment": "standard_wall_function",
+        "status": "evaluated",
+        "geometry": {
+          "n_faces": 335,
+          "measured_faces": 335,
+          "distance_min": 5.548099034270267e-05,
+          "distance_p05": 7.144458926723585e-05,
+          "distance_median": 0.00012383409576342472,
+          "distance_p95": 0.0001452103199999985,
+          "distance_max": 0.00014521032000000197,
+          "normal_to_tangential_scale_p95": 0.4626301820756775,
+          "first_cell_aspect_p95": 7.182940782507455,
+          "near_wall_internal_faces": 669,
+          "near_wall_nonortho_max": 5.9608574618887324,
+          "near_wall_nonortho_p95": 5.960857088100032,
+          "near_wall_nonortho_over70": 0,
+          "near_wall_nonortho_over65": 0,
+          "near_wall_skew_max": 0.13064625020781448,
+          "near_wall_skew_p95": 0.0010704099847287844,
+          "near_wall_skew_over4": 0,
+          "near_wall_skew_over2_5": 0
+        },
+        "wall_conditions_verified": false,
+        "wall_field_types": {
+          "nut": "nutkWallFunction",
+          "omega": "omegaWallFunction",
+          "epsilon": "epsilonWallFunction"
+        },
+        "low_y_wall_function": true,
+        "target_yplus": [
+          30.0,
+          300.0
+        ],
+        "target_source": "explicit",
+        "provenance": "solver_result",
+        "yplus": {
+          "min": 1.6225,
+          "p05": 1.6676,
+          "median": 3.78002,
+          "p95": 5.53141,
+          "max": 5.54864,
+          "mean": 3.6310936223381614,
+          "outside_area_fraction": 1.0,
+          "n_outside": 335,
+          "n_valid": 335
+        }
+      },
+      "lowerWall": {
+        "treatment": "standard_wall_function",
+        "status": "evaluated",
+        "geometry": {
+          "n_faces": 376,
+          "measured_faces": 376,
+          "distance_min": 0.00010330775704999998,
+          "distance_p05": 0.00010330775705,
+          "distance_median": 0.0003365283032939932,
+          "distance_p95": 0.00036610086525176114,
+          "distance_max": 0.0003680660322559412,
+          "normal_to_tangential_scale_p95": 1.1753168878016167,
+          "first_cell_aspect_p95": 3.7610844167251742,
+          "near_wall_internal_faces": 749,
+          "near_wall_nonortho_max": 5.908184629754954,
+          "near_wall_nonortho_p95": 5.835751395193147,
+          "near_wall_nonortho_over70": 0,
+          "near_wall_nonortho_over65": 0,
+          "near_wall_skew_max": 0.11535867011206462,
+          "near_wall_skew_p95": 0.0009756446879711058,
+          "near_wall_skew_over4": 0,
+          "near_wall_skew_over2_5": 0
+        },
+        "wall_conditions_verified": false,
+        "wall_field_types": {
+          "nut": "nutkWallFunction",
+          "omega": "omegaWallFunction",
+          "epsilon": "epsilonWallFunction"
+        },
+        "low_y_wall_function": true,
+        "target_yplus": [
+          30.0,
+          300.0
+        ],
+        "target_source": "explicit",
+        "provenance": "solver_result",
+        "yplus": {
+          "min": 0.119264,
+          "p05": 1.29483,
+          "median": 12.4998,
+          "p95": 16.3248,
+          "max": 16.3969,
+          "mean": 11.284691751096732,
+          "outside_area_fraction": 1.0,
+          "n_outside": 376,
+          "n_valid": 376
+        }
+      }
+    },
+    "evidence": [
+      {
+        "kind": "solver_result",
+        "path": "/home/foamuser/OpenFOAM/foamuser-12/run/pitzDailySteady-grid-fine-monitored-20261004/461/yPlus",
+        "metric": "yPlus"
+      },
+      {
+        "kind": "solver_result",
+        "metric": "yPlus",
+        "wall": "upperWall"
+      },
+      {
+        "kind": "solver_result",
+        "metric": "yPlus",
+        "wall": "lowerWall"
+      }
+    ],
+    "missing": [],
+    "case_setup": {
+      "wall_field_types": {
+        "inlet": {
+          "nut": "calculated",
+          "omega": "fixedValue",
+          "epsilon": "fixedValue"
+        },
+        "outlet": {
+          "nut": "calculated",
+          "omega": "zeroGradient",
+          "epsilon": "zeroGradient"
+        },
+        "upperWall": {
+          "nut": "nutkWallFunction",
+          "omega": "omegaWallFunction",
+          "epsilon": "epsilonWallFunction"
+        },
+        "lowerWall": {
+          "nut": "nutkWallFunction",
+          "omega": "omegaWallFunction",
+          "epsilon": "epsilonWallFunction"
+        },
+        "frontAndBack": {
+          "nut": "empty",
+          "omega": "empty",
+          "epsilon": "empty"
+        }
+      },
+      "application": "foamRun",
+      "simulation_type": "RAS",
+      "turbulence_model": "kEpsilon",
+      "nu": 1e-05
+    },
+    "solution_checks": {
+      "mass_balance": {
+        "relative_imbalance": 4.055118110231773e-05,
+        "tolerance": 0.01,
+        "basis": "volumetric_flux_m3_s"
+      },
+      "monitor_drift": {
+        "kinematic_pressure_difference_m2_s2_coarse": {
+          "relative_change": 0.02030929163706181,
+          "tolerance": 0.005
+        },
+        "kinematic_pressure_difference_m2_s2_medium": {
+          "relative_change": 0.06485700276453174,
+          "tolerance": 0.005
+        },
+        "kinematic_pressure_difference_m2_s2_fine": {
+          "relative_change": 0.08207941570109276,
+          "tolerance": 0.005
+        }
+      },
+      "grid_sensitivity": {
+        "kinematic_pressure_difference_m2_s2": {
+          "coarse": -5.658197,
+          "medium": -5.064117,
+          "fine": -4.415714,
+          "fine_medium_relative_change": 0.12803870842636536,
+          "tolerance": 0.02,
+          "n_cells": [
+            5446,
+            12225,
+            27703
+          ],
+          "unstable_monitor_histories": [
+            "kinematic_pressure_difference_m2_s2_coarse",
+            "kinematic_pressure_difference_m2_s2_medium",
+            "kinematic_pressure_difference_m2_s2_fine"
+          ],
+          "missing_monitor_histories": [],
+          "interpretation": "provisional_target_unstable"
+        }
+      }
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "high",
+      "metric": "monitor_drift",
+      "issue": "监测量 kinematic_pressure_difference_m2_s2_coarse 的末段漂移",
+      "where": "对应的监测目标量及影响区域",
+      "evidence": "极值 0.02030929163706181；比较末尾两个等长窗口的均值；监测量稳定不单独证明网格无关",
+      "mesh_action": "先检查残差停止条件、边界条件和数值设置，并继续迭代至目标量稳定；若仍持续漂移，再定位相关壁面或强梯度区域并调整局部网格。",
+      "verification": "重新检查目标量监测序列，确认末段变化低于容差后再比较不同网格。"
+    },
+    {
+      "priority": "high",
+      "metric": "monitor_drift",
+      "issue": "监测量 kinematic_pressure_difference_m2_s2_medium 的末段漂移",
+      "where": "对应的监测目标量及影响区域",
+      "evidence": "极值 0.06485700276453174；比较末尾两个等长窗口的均值；监测量稳定不单独证明网格无关",
+      "mesh_action": "先检查残差停止条件、边界条件和数值设置，并继续迭代至目标量稳定；若仍持续漂移，再定位相关壁面或强梯度区域并调整局部网格。",
+      "verification": "重新检查目标量监测序列，确认末段变化低于容差后再比较不同网格。"
+    },
+    {
+      "priority": "high",
+      "metric": "monitor_drift",
+      "issue": "监测量 kinematic_pressure_difference_m2_s2_fine 的末段漂移",
+      "where": "对应的监测目标量及影响区域",
+      "evidence": "极值 0.08207941570109276；比较末尾两个等长窗口的均值；监测量稳定不单独证明网格无关",
+      "mesh_action": "先检查残差停止条件、边界条件和数值设置，并继续迭代至目标量稳定；若仍持续漂移，再定位相关壁面或强梯度区域并调整局部网格。",
+      "verification": "重新检查目标量监测序列，确认末段变化低于容差后再比较不同网格。"
+    },
+    {
+      "priority": "high",
+      "metric": "grid_sensitivity",
+      "issue": "目标量 kinematic_pressure_difference_m2_s2 的网格敏感性",
+      "where": "对应的监测目标量及影响区域",
+      "evidence": "极值 0.12803870842636536；细/中网格目标量相对变化；需要同一物理模型和边界条件，未据此推断严格误差界；相关监测量末段仍在漂移，网格敏感性比较暂为初步结果，需先使各网格目标量稳定",
+      "mesh_action": "先使各套网格上的目标量监测序列稳定，再重新比较细/中结果；若变化仍超容差，定位壁面、分离区和强梯度区后局部加密，保持物理模型与边界条件一致。",
+      "verification": "各套目标量末段变化先低于容差，再比较细/中网格差异；必要时增加更细网格。"
+    },
+    {
+      "priority": "high",
+      "metric": "yplus",
+      "issue": "壁面 upperWall 的 y⁺ 区间偏离",
+      "where": "壁面 upperWall",
+      "evidence": "极值 5.531；范围 335 / 335；筛查目标区间 30.0–300.0（工况显式指定）；按面积计算区间外比例 100.0%；证据 solver_result；单凭偏离不能判定求解失败",
+      "mesh_action": "壁面 upperWall 的 y⁺ 低于所设筛查下限；先核对当前 nutkWallFunction / epsilonWallFunction 的低 y⁺ 分支是否符合关注的壁面剪切、压降或换热目标。若需要把首层置于对数区，再按实际 y⁺ 分布增大首层法向距离，同时检查尺寸过渡与局部流动分辨率；不要仅为满足区间而直接放粗网格。",
+      "verification": "重新计算该壁面 yPlus，并比较壁面剪切、压降/换热量及其网格敏感性。"
+    },
+    {
+      "priority": "high",
+      "metric": "yplus",
+      "issue": "壁面 lowerWall 的 y⁺ 区间偏离",
+      "where": "壁面 lowerWall",
+      "evidence": "极值 16.325；范围 376 / 376；筛查目标区间 30.0–300.0（工况显式指定）；按面积计算区间外比例 100.0%；证据 solver_result；单凭偏离不能判定求解失败",
+      "mesh_action": "壁面 lowerWall 的 y⁺ 低于所设筛查下限；先核对当前 nutkWallFunction / epsilonWallFunction 的低 y⁺ 分支是否符合关注的壁面剪切、压降或换热目标。若需要把首层置于对数区，再按实际 y⁺ 分布增大首层法向距离，同时检查尺寸过渡与局部流动分辨率；不要仅为满足区间而直接放粗网格。",
+      "verification": "重新计算该壁面 yPlus，并比较壁面剪切、压降/换热量及其网格敏感性。"
+    }
+  ],
+  "readiness": "高风险指标待复核",
+  "steps": [
+    {
+      "t": 0.0,
+      "msg": "识别网格来源：openfoam / case（找到 constant/polyMesh/{points,faces,owner}；存在 system/controlDict）",
+      "cmd": null,
+      "status": "ok"
+    },
+    {
+      "t": 0.03,
+      "msg": "使用已有 checkMesh 日志：/home/foamuser/OpenFOAM/foamuser-12/run/pitzDailySteady-grid-fine-monitored-20261004/log.checkMesh",
+      "cmd": null,
+      "status": "ok"
+    },
+    {
+      "t": 0.04,
+      "msg": "用 Python 读取 polyMesh，计算各面/单元指标分布和位置",
+      "cmd": "polymesh.analyse(/home/foamuser/OpenFOAM/foamuser-12/run/pitzDailySteady-grid-fine-monitored-20261004/constant/polyMesh)",
+      "status": "ok"
+    },
+    {
+      "t": 1.15,
+      "msg": "polyMesh 读取完成：27703 个单元，111233 个面",
+      "cmd": null,
+      "status": "ok"
+    }
+  ]
+}

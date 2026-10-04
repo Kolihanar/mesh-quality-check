@@ -1,0 +1,36 @@
+> /mesh/check
+
+Domain Extents:
+  x-coordinate: min (m) = -2.000000e-01, max (m) = 1.200000e+00
+  y-coordinate: min (m) = -3.000000e-01, max (m) = 3.000000e-01
+  z-coordinate: min (m) = 0.000000e+00, max (m) = 4.000000e-01
+Volume statistics:
+  minimum volume (m3): 6.130000e-12
+  maximum volume (m3): 2.441406e-06
+    total volume (m3): 6.720000e-01
+Face area statistics:
+  minimum face area (m2): 1.836000e-08
+  maximum face area (m2): 1.953125e-04
+Checking mesh.....................................
+Done.
+
+> /mesh/quality
+
+Mesh Quality:
+
+Minimum Orthogonal Quality = 3.04000e-03 cell 51288 on zone 7 (ID: 1218760 on partition: 0) at location (5.512e-01, -1.230e-02, 1.002e-01)
+(To improve Orthogonal quality , use "Improve Quality" command in Mesh menu.)
+
+Maximum Ortho Skew = 9.96960e-01 cell 51288 on zone 7 (ID: 1218760 on partition: 0) at location (5.512e-01, -1.230e-02, 1.002e-01)
+(To improve Ortho skew, use "Improve Quality" command in Mesh menu.)
+
+Maximum Aspect Ratio = 2.31470e+02 cell 1008 on zone 2 (ID: 1008 on partition: 0) at location (1.000e-02, 2.990e-01, 3.000e-01)
+
+> /mesh/size
+
+Mesh Size
+
+Level    Cells     Faces     Nodes   Partitions
+    0  1302114   4117390    865012           1
+
+ 3 cell zones, 14 face zones.

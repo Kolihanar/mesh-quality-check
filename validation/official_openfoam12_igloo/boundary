@@ -1,0 +1,84 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  12
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+9
+(
+    maxY
+    {
+        type            symmetryPlane;
+        inGroups        List<word> 1(symmetryPlane);
+        nFaces          0;
+        startFace       34307;
+    }
+    minX
+    {
+        type            symmetryPlane;
+        inGroups        List<word> 1(symmetryPlane);
+        nFaces          0;
+        startFace       34307;
+    }
+    maxX
+    {
+        type            symmetryPlane;
+        inGroups        List<word> 1(symmetryPlane);
+        nFaces          0;
+        startFace       34307;
+    }
+    minY
+    {
+        type            symmetryPlane;
+        inGroups        List<word> 1(symmetryPlane);
+        nFaces          0;
+        startFace       34307;
+    }
+    ground
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          918;
+        startFace       34307;
+    }
+    maxZ
+    {
+        type            symmetryPlane;
+        inGroups        List<word> 1(symmetryPlane);
+        nFaces          0;
+        startFace       35225;
+    }
+    igloo
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          1276;
+        startFace       35225;
+    }
+    twoFridgeFreezers_seal_0
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          800;
+        startFace       36501;
+    }
+    twoFridgeFreezers_herring_1
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          592;
+        startFace       37301;
+    }
+)
+
+// ************************************************************************* //

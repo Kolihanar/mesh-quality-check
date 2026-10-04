@@ -1,0 +1,1093 @@
+{
+  "generated": "2026-10-04 19:32:21",
+  "input": "/home/foamuser/OpenFOAM/foamuser-12/run/iglooWithFridges-layer-validation-20261004",
+  "detection": {
+    "source": "openfoam",
+    "kind": "case",
+    "path": "/home/foamuser/OpenFOAM/foamuser-12/run/iglooWithFridges-layer-validation-20261004",
+    "polymesh": "/home/foamuser/OpenFOAM/foamuser-12/run/iglooWithFridges-layer-validation-20261004/constant/polyMesh",
+    "evidence": [
+      "找到 constant/polyMesh/{points,faces,owner}",
+      "存在 system/controlDict"
+    ]
+  },
+  "overall": "high",
+  "overall_zh": "高风险",
+  "source": "openfoam",
+  "input_kind": "case",
+  "mesh_info": {
+    "n_points": 15906,
+    "n_faces": 37893,
+    "n_internal_faces": 34307,
+    "n_cells": 11274,
+    "version": "12",
+    "cell_types": {
+      "hexahedra": 7643,
+      "prisms": 208,
+      "tet wedges": 12,
+      "polyhedra": 3411
+    },
+    "n_dims": 3,
+    "bounds": [
+      [
+        -1.00389,
+        -1.00395,
+        0.0
+      ],
+      [
+        7.00389,
+        7.00395,
+        4.0
+      ]
+    ],
+    "patches": [
+      {
+        "name": "maxY",
+        "type": "symmetryPlane",
+        "nFaces": 0,
+        "groups": [
+          "symmetryPlane"
+        ]
+      },
+      {
+        "name": "minX",
+        "type": "symmetryPlane",
+        "nFaces": 0,
+        "groups": [
+          "symmetryPlane"
+        ]
+      },
+      {
+        "name": "maxX",
+        "type": "symmetryPlane",
+        "nFaces": 0,
+        "groups": [
+          "symmetryPlane"
+        ]
+      },
+      {
+        "name": "minY",
+        "type": "symmetryPlane",
+        "nFaces": 0,
+        "groups": [
+          "symmetryPlane"
+        ]
+      },
+      {
+        "name": "ground",
+        "type": "wall",
+        "nFaces": 918,
+        "groups": [
+          "wall"
+        ]
+      },
+      {
+        "name": "maxZ",
+        "type": "symmetryPlane",
+        "nFaces": 0,
+        "groups": [
+          "symmetryPlane"
+        ]
+      },
+      {
+        "name": "igloo",
+        "type": "wall",
+        "nFaces": 1276,
+        "groups": [
+          "wall"
+        ]
+      },
+      {
+        "name": "twoFridgeFreezers_seal_0",
+        "type": "wall",
+        "nFaces": 800,
+        "groups": [
+          "wall"
+        ]
+      },
+      {
+        "name": "twoFridgeFreezers_herring_1",
+        "type": "wall",
+        "nFaces": 592,
+        "groups": [
+          "wall"
+        ]
+      }
+    ],
+    "face_sizes": {
+      "4": 32617,
+      "3": 456,
+      "6": 739,
+      "5": 4047,
+      "7": 31,
+      "8": 3
+    },
+    "cell_volume": {
+      "min": 2.14675e-05,
+      "max": 0.135081
+    }
+  },
+  "findings": [
+    {
+      "metric": "native_mesh_checks_failed",
+      "name_zh": "checkMesh 检查失败项",
+      "category": "critical",
+      "value": 1,
+      "stat": null,
+      "unit": "",
+      "severity": "high",
+      "severity_zh": "高风险",
+      "n_bad": null,
+      "n_total": null,
+      "total_kind": "单元",
+      "fraction": null,
+      "scope": null,
+      "scope_zh": "未知（只有极值）",
+      "location": null,
+      "raw": null,
+      "definition": null,
+      "threshold": null,
+      "advice": [
+        "查看 checkMesh 报警行及生成的 cellSet/faceSet，逐项修复后重新运行完整检查。"
+      ]
+    },
+    {
+      "metric": "concave_cells",
+      "name_zh": "凹单元",
+      "category": "quality",
+      "value": null,
+      "stat": null,
+      "unit": "",
+      "severity": "moderate",
+      "severity_zh": "中等",
+      "n_bad": 1733,
+      "n_total": 11274,
+      "total_kind": "单元",
+      "fraction": 0.15371651587723967,
+      "scope": "widespread",
+      "scope_zh": "大面积",
+      "location": null,
+      "raw": null,
+      "definition": null,
+      "threshold": null,
+      "advice": [
+        "存在凹单元，多见于 snappyHexMesh 贴体层；一般可接受，若和高非正交性同时出现应优先处理。"
+      ]
+    },
+    {
+      "metric": "non_orthogonality",
+      "name_zh": "非正交性",
+      "category": "quality",
+      "value": 50.53,
+      "stat": "max",
+      "unit": "°",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 34307,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "面法向与相邻单元中心连线的夹角（仅内部面），0° 为理想",
+      "threshold": {
+        "direction": "max",
+        "moderate": 65,
+        "high": 70,
+        "critical": 85
+      },
+      "advice": [],
+      "average": 14.7323,
+      "distribution": {
+        ">50°": 1,
+        ">65°": 0,
+        ">70°": 0,
+        ">80°": 0
+      }
+    },
+    {
+      "metric": "skewness",
+      "name_zh": "歪斜度（OpenFOAM 定义）",
+      "category": "quality",
+      "value": 3.4481,
+      "stat": "max",
+      "unit": "",
+      "severity": "moderate",
+      "severity_zh": "中等",
+      "n_bad": 0,
+      "n_total": 37893,
+      "total_kind": "面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "面中心相对两单元中心连线交点的偏移，按面尺寸归一化；无上界，0 为理想",
+      "threshold": {
+        "direction": "max",
+        "moderate": 2.5,
+        "high": 4,
+        "critical": 20
+      },
+      "advice": [
+        "高歪斜度会降低插值精度，严重时导致发散。网格侧：在问题区域局部加密或调整 snappy 的 maxInternalSkewness / maxBoundarySkewness。",
+        "数值侧：梯度格式使用 cellLimited Gauss linear 1，对流项使用有界格式（如 linearUpwind 配合限制器）。"
+      ],
+      "distribution": {
+        ">1": 70,
+        ">2.5": 4,
+        ">4": 0,
+        ">10": 0
+      }
+    },
+    {
+      "metric": "aspect_ratio",
+      "name_zh": "长宽比",
+      "category": "quality",
+      "value": 11.385,
+      "stat": "max",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 11274,
+      "total_kind": "单元",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "OpenFOAM cellAspectRatio，1 为理想",
+      "threshold": {
+        "direction": "max",
+        "moderate": 1000,
+        "high": 10000,
+        "critical": null
+      },
+      "advice": []
+    },
+    {
+      "metric": "cell_determinant",
+      "name_zh": "单元行列式",
+      "category": "quality",
+      "value": 0.0184927,
+      "stat": "min",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 11274,
+      "total_kind": "单元",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": null,
+      "threshold": {
+        "direction": "min",
+        "moderate": 0.01,
+        "high": 0.001,
+        "critical": null
+      },
+      "advice": []
+    },
+    {
+      "metric": "interpolation_weight",
+      "name_zh": "面插值权重",
+      "category": "quality",
+      "value": 0.0603226,
+      "stat": "min",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 34307,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": null,
+      "threshold": {
+        "direction": "min",
+        "moderate": 0.05,
+        "high": 0.02,
+        "critical": null
+      },
+      "advice": []
+    },
+    {
+      "metric": "volume_ratio",
+      "name_zh": "相邻单元体积比",
+      "category": "quality",
+      "value": 0.0179687,
+      "stat": "min",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 34307,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": null,
+      "threshold": {
+        "direction": "min",
+        "moderate": 0.01,
+        "high": 0.001,
+        "critical": null
+      },
+      "advice": []
+    },
+    {
+      "metric": "near_wall_nonortho",
+      "name_zh": "壁面 ground 的近壁内部面非正交角",
+      "category": "quality",
+      "value": 47.7078,
+      "stat": "max",
+      "unit": "°",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 3118,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "near_wall_skew",
+      "name_zh": "壁面 ground 的近壁内部面歪斜度",
+      "category": "quality",
+      "value": 0.6501,
+      "stat": "max",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 3118,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "boundary_layers",
+      "name_zh": "壁面 igloo 实际边界层层数",
+      "category": "quality",
+      "value": 1,
+      "stat": "min",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 1276,
+      "total_kind": "壁面面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "目标至少 1 层；按面积计算不足比例 0.0%；来自 nSurfaceLayers 边界场",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "layer_coverage",
+      "name_zh": "壁面 igloo 边界层覆盖率",
+      "category": "quality",
+      "value": 1.0,
+      "stat": "area_fraction",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 1276,
+      "total_kind": "壁面面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "目标不低于 0.95；按壁面面积加权；来自 nSurfaceLayers 边界场",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "near_wall_nonortho",
+      "name_zh": "壁面 igloo 的近壁内部面非正交角",
+      "category": "quality",
+      "value": 34.2857,
+      "stat": "max",
+      "unit": "°",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 4112,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "near_wall_skew",
+      "name_zh": "壁面 igloo 的近壁内部面歪斜度",
+      "category": "quality",
+      "value": 0.4483,
+      "stat": "max",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 4112,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "boundary_layers",
+      "name_zh": "壁面 twoFridgeFreezers_seal_0 实际边界层层数",
+      "category": "quality",
+      "value": 0,
+      "stat": "min",
+      "unit": "",
+      "severity": "high",
+      "severity_zh": "高风险",
+      "n_bad": 472,
+      "n_total": 800,
+      "total_kind": "壁面面",
+      "fraction": 0.59,
+      "scope": "widespread",
+      "scope_zh": "大面积",
+      "location": {
+        "near_patches": [
+          {
+            "patch": "twoFridgeFreezers_seal_0",
+            "count": 472
+          }
+        ],
+        "bbox_min": [
+          1.9999999999999996,
+          1.9999999999999993,
+          0.03205448818642295
+        ],
+        "bbox_max": [
+          3.000000000000001,
+          3.000000000000001,
+          2.100000000000001
+        ]
+      },
+      "raw": null,
+      "definition": "目标至少 3 层；按面积计算不足比例 55.1%；来自 nSurfaceLayers 边界场",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "layer_coverage",
+      "name_zh": "壁面 twoFridgeFreezers_seal_0 边界层覆盖率",
+      "category": "quality",
+      "value": 0.975125,
+      "stat": "area_fraction",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 72,
+      "n_total": 800,
+      "total_kind": "壁面面",
+      "fraction": 0.09,
+      "scope": "widespread",
+      "scope_zh": "大面积",
+      "location": {
+        "near_patches": [
+          {
+            "patch": "twoFridgeFreezers_seal_0",
+            "count": 72
+          }
+        ],
+        "bbox_min": [
+          1.9999999999999996,
+          2.0,
+          2.0498369579985054
+        ],
+        "bbox_max": [
+          2.9999999999999996,
+          3.0,
+          2.100000000000001
+        ]
+      },
+      "raw": null,
+      "definition": "目标不低于 0.95；按壁面面积加权；来自 nSurfaceLayers 边界场",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "near_wall_nonortho",
+      "name_zh": "壁面 twoFridgeFreezers_seal_0 的近壁内部面非正交角",
+      "category": "quality",
+      "value": 40.8631,
+      "stat": "max",
+      "unit": "°",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 2572,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "near_wall_skew",
+      "name_zh": "壁面 twoFridgeFreezers_seal_0 的近壁内部面歪斜度",
+      "category": "quality",
+      "value": 0.6834,
+      "stat": "max",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 2572,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "boundary_layers",
+      "name_zh": "壁面 twoFridgeFreezers_herring_1 实际边界层层数",
+      "category": "quality",
+      "value": 0,
+      "stat": "min",
+      "unit": "",
+      "severity": "high",
+      "severity_zh": "高风险",
+      "n_bad": 348,
+      "n_total": 592,
+      "total_kind": "壁面面",
+      "fraction": 0.5878378378378378,
+      "scope": "widespread",
+      "scope_zh": "大面积",
+      "location": {
+        "near_patches": [
+          {
+            "patch": "twoFridgeFreezers_herring_1",
+            "count": 348
+          }
+        ],
+        "bbox_min": [
+          3.4999999999999996,
+          2.999999999999999,
+          0.06200743770040226
+        ],
+        "bbox_max": [
+          4.500000000000001,
+          4.000000000000001,
+          2.1
+        ]
+      },
+      "raw": null,
+      "definition": "目标至少 3 层；按面积计算不足比例 57.9%；来自 nSurfaceLayers 边界场",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "layer_coverage",
+      "name_zh": "壁面 twoFridgeFreezers_herring_1 边界层覆盖率",
+      "category": "quality",
+      "value": 0.992659,
+      "stat": "area_fraction",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 6,
+      "n_total": 592,
+      "total_kind": "壁面面",
+      "fraction": 0.010135135135135136,
+      "scope": "widespread",
+      "scope_zh": "大面积",
+      "location": {
+        "near_patches": [
+          {
+            "patch": "twoFridgeFreezers_herring_1",
+            "count": 6
+          }
+        ],
+        "bbox_min": [
+          3.500036585217109,
+          3.0232121945746915,
+          2.0668026088814533
+        ],
+        "bbox_max": [
+          4.412228348680672,
+          3.970612088469814,
+          2.0999293644632466
+        ]
+      },
+      "raw": null,
+      "definition": "目标不低于 0.95；按壁面面积加权；来自 nSurfaceLayers 边界场",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "near_wall_nonortho",
+      "name_zh": "壁面 twoFridgeFreezers_herring_1 的近壁内部面非正交角",
+      "category": "quality",
+      "value": 46.5254,
+      "stat": "max",
+      "unit": "°",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 1891,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    },
+    {
+      "metric": "near_wall_skew",
+      "name_zh": "壁面 twoFridgeFreezers_herring_1 的近壁内部面歪斜度",
+      "category": "quality",
+      "value": 0.9969,
+      "stat": "max",
+      "unit": "",
+      "severity": "ok",
+      "severity_zh": "可接受",
+      "n_bad": 0,
+      "n_total": 1891,
+      "total_kind": "内部面",
+      "fraction": 0.0,
+      "scope": "isolated",
+      "scope_zh": "零星",
+      "location": null,
+      "raw": null,
+      "definition": "壁面首层单元相邻内部面的独立几何计算；严重程度参照 OpenFOAM 同名指标",
+      "threshold": null,
+      "advice": []
+    }
+  ],
+  "extra": {
+    "checkmesh_verdict": "Failed 1 mesh checks",
+    "checkmesh_flagged_lines": [
+      "*There are 245 faces with concave angles between consecutive edges. Max concave angle = 39.253 degrees.",
+      "***Concave cells (using face planes) found, number of cells: 1733"
+    ]
+  },
+  "limitations": [
+    "位置/分布统计来自本工具按 OpenFOAM 公式的独立计算，数值可能与 checkMesh 有微小差别；严重程度以 checkMesh 数值为准。"
+  ],
+  "visualize_hint": "checkMesh 会把坏面/坏单元写成集合（如 nonOrthoFaces、skewFaces）。用 `foamToVTK -faceSet nonOrthoFaces`（单元集合用 -cellSet）转成 VTK，或 ESI 版直接用 `checkMesh -allGeometry -allTopology -writeSets vtk`，在 ParaView 中查看。",
+  "cfd": {
+    "profile": "OpenFOAM 单相 RANS 内流",
+    "wall_geometry": {
+      "ground": {
+        "n_faces": 918,
+        "measured_faces": 918,
+        "distance_min": 0.03114772839748235,
+        "distance_p05": 0.03129499404546653,
+        "distance_median": 0.0630108482699447,
+        "distance_p95": 0.252152917545553,
+        "distance_max": 0.2548940605068484,
+        "normal_to_tangential_scale_p95": 1.8028596604141311,
+        "first_cell_aspect_p95": 3.1006032113801036,
+        "near_wall_internal_faces": 3118,
+        "near_wall_nonortho_max": 47.707815976627934,
+        "near_wall_nonortho_p95": 31.2341930819355,
+        "near_wall_nonortho_over70": 0,
+        "near_wall_nonortho_over65": 0,
+        "near_wall_skew_max": 0.6501031240535928,
+        "near_wall_skew_p95": 0.3761678556183104,
+        "near_wall_skew_over4": 0,
+        "near_wall_skew_over2_5": 0
+      },
+      "igloo": {
+        "n_faces": 1276,
+        "measured_faces": 1276,
+        "distance_min": 0.06156239085765816,
+        "distance_p05": 0.06163705066294851,
+        "distance_median": 0.061761866525180856,
+        "distance_p95": 0.06181487884883455,
+        "distance_max": 0.06184442255479849,
+        "normal_to_tangential_scale_p95": 0.5730806312578168,
+        "first_cell_aspect_p95": 2.0579381326844715,
+        "near_wall_internal_faces": 4112,
+        "near_wall_nonortho_max": 34.285731981431404,
+        "near_wall_nonortho_p95": 20.738052384890775,
+        "near_wall_nonortho_over70": 0,
+        "near_wall_nonortho_over65": 0,
+        "near_wall_skew_max": 0.4482615639296977,
+        "near_wall_skew_p95": 0.26326952037216916,
+        "near_wall_skew_over4": 0,
+        "near_wall_skew_over2_5": 0
+      },
+      "twoFridgeFreezers_seal_0": {
+        "n_faces": 800,
+        "measured_faces": 800,
+        "distance_min": 0.003495038302044229,
+        "distance_p05": 0.008991868479507236,
+        "distance_median": 0.017627265708144213,
+        "distance_p95": 0.02891912688410246,
+        "distance_max": 0.034884675959260036,
+        "normal_to_tangential_scale_p95": 0.7793227618418186,
+        "first_cell_aspect_p95": 5.009472850495152,
+        "near_wall_internal_faces": 2572,
+        "near_wall_nonortho_max": 40.86305980796734,
+        "near_wall_nonortho_p95": 23.851456691390908,
+        "near_wall_nonortho_over70": 0,
+        "near_wall_nonortho_over65": 0,
+        "near_wall_skew_max": 0.6833658192481001,
+        "near_wall_skew_p95": 0.4256140135114192,
+        "near_wall_skew_over4": 0,
+        "near_wall_skew_over2_5": 0
+      },
+      "twoFridgeFreezers_herring_1": {
+        "n_faces": 592,
+        "measured_faces": 592,
+        "distance_min": 0.006842750991143728,
+        "distance_p05": 0.014176080379098456,
+        "distance_median": 0.02294863056858487,
+        "distance_p95": 0.029651969815754242,
+        "distance_max": 0.13918475333991426,
+        "normal_to_tangential_scale_p95": 0.4678748398808735,
+        "first_cell_aspect_p95": 4.956949123718062,
+        "near_wall_internal_faces": 1891,
+        "near_wall_nonortho_max": 46.525433836977065,
+        "near_wall_nonortho_p95": 21.033814611852055,
+        "near_wall_nonortho_over70": 0,
+        "near_wall_nonortho_over65": 0,
+        "near_wall_skew_max": 0.9969239809602921,
+        "near_wall_skew_p95": 0.572306861716226,
+        "near_wall_skew_over4": 0,
+        "near_wall_skew_over2_5": 0
+      }
+    },
+    "wall_checks": {
+      "ground": {
+        "treatment": null,
+        "status": "unknown",
+        "geometry": {
+          "n_faces": 918,
+          "measured_faces": 918,
+          "distance_min": 0.03114772839748235,
+          "distance_p05": 0.03129499404546653,
+          "distance_median": 0.0630108482699447,
+          "distance_p95": 0.252152917545553,
+          "distance_max": 0.2548940605068484,
+          "normal_to_tangential_scale_p95": 1.8028596604141311,
+          "first_cell_aspect_p95": 3.1006032113801036,
+          "near_wall_internal_faces": 3118,
+          "near_wall_nonortho_max": 47.707815976627934,
+          "near_wall_nonortho_p95": 31.2341930819355,
+          "near_wall_nonortho_over70": 0,
+          "near_wall_nonortho_over65": 0,
+          "near_wall_skew_max": 0.6501031240535928,
+          "near_wall_skew_p95": 0.3761678556183104,
+          "near_wall_skew_over4": 0,
+          "near_wall_skew_over2_5": 0
+        },
+        "wall_conditions_verified": false,
+        "wall_field_source": "patch_group:wall",
+        "wall_field_types": {
+          "nut": "nutkWallFunction",
+          "epsilon": "epsilonWallFunction",
+          "alphat": "compressible::alphatJayatillekeWallFunction"
+        },
+        "low_y_wall_function": true,
+        "layer_distribution": {
+          "min": 0,
+          "max": 0,
+          "coverage_area_fraction": 0.0,
+          "n_covered": 0,
+          "n_faces": 918,
+          "mean": 0.0
+        },
+        "layer_source": "mesh_generation_field",
+        "measured_layers": 0,
+        "measured_layer_coverage": 0.0
+      },
+      "igloo": {
+        "treatment": null,
+        "status": "unknown",
+        "geometry": {
+          "n_faces": 1276,
+          "measured_faces": 1276,
+          "distance_min": 0.06156239085765816,
+          "distance_p05": 0.06163705066294851,
+          "distance_median": 0.061761866525180856,
+          "distance_p95": 0.06181487884883455,
+          "distance_max": 0.06184442255479849,
+          "normal_to_tangential_scale_p95": 0.5730806312578168,
+          "first_cell_aspect_p95": 2.0579381326844715,
+          "near_wall_internal_faces": 4112,
+          "near_wall_nonortho_max": 34.285731981431404,
+          "near_wall_nonortho_p95": 20.738052384890775,
+          "near_wall_nonortho_over70": 0,
+          "near_wall_nonortho_over65": 0,
+          "near_wall_skew_max": 0.4482615639296977,
+          "near_wall_skew_p95": 0.26326952037216916,
+          "near_wall_skew_over4": 0,
+          "near_wall_skew_over2_5": 0
+        },
+        "wall_conditions_verified": false,
+        "wall_field_source": "patch_group:wall",
+        "wall_field_types": {
+          "nut": "nutkWallFunction",
+          "epsilon": "epsilonWallFunction",
+          "alphat": "compressible::alphatJayatillekeWallFunction"
+        },
+        "low_y_wall_function": true,
+        "layer_distribution": {
+          "min": 1,
+          "max": 1,
+          "coverage_area_fraction": 1.0,
+          "n_covered": 1276,
+          "n_faces": 1276,
+          "mean": 1.0,
+          "under_target_area_fraction": 0.0,
+          "n_under_target": 0
+        },
+        "layer_source": "mesh_generation_field",
+        "measured_layers": 1,
+        "measured_layer_coverage": 1.0
+      },
+      "twoFridgeFreezers_seal_0": {
+        "treatment": null,
+        "status": "unknown",
+        "geometry": {
+          "n_faces": 800,
+          "measured_faces": 800,
+          "distance_min": 0.003495038302044229,
+          "distance_p05": 0.008991868479507236,
+          "distance_median": 0.017627265708144213,
+          "distance_p95": 0.02891912688410246,
+          "distance_max": 0.034884675959260036,
+          "normal_to_tangential_scale_p95": 0.7793227618418186,
+          "first_cell_aspect_p95": 5.009472850495152,
+          "near_wall_internal_faces": 2572,
+          "near_wall_nonortho_max": 40.86305980796734,
+          "near_wall_nonortho_p95": 23.851456691390908,
+          "near_wall_nonortho_over70": 0,
+          "near_wall_nonortho_over65": 0,
+          "near_wall_skew_max": 0.6833658192481001,
+          "near_wall_skew_p95": 0.4256140135114192,
+          "near_wall_skew_over4": 0,
+          "near_wall_skew_over2_5": 0
+        },
+        "wall_conditions_verified": false,
+        "wall_field_source": "patch_group:wall",
+        "wall_field_types": {
+          "nut": "nutkWallFunction",
+          "epsilon": "epsilonWallFunction",
+          "alphat": "compressible::alphatJayatillekeWallFunction"
+        },
+        "low_y_wall_function": true,
+        "layer_distribution": {
+          "min": 0,
+          "max": 3,
+          "coverage_area_fraction": 0.9751248198085107,
+          "n_covered": 728,
+          "n_faces": 800,
+          "mean": 2.1381070234059574,
+          "under_target_area_fraction": 0.5509675223768087,
+          "n_under_target": 472
+        },
+        "layer_source": "mesh_generation_field",
+        "measured_layers": 0,
+        "measured_layer_coverage": 0.9751248198085107
+      },
+      "twoFridgeFreezers_herring_1": {
+        "treatment": null,
+        "status": "unknown",
+        "geometry": {
+          "n_faces": 592,
+          "measured_faces": 592,
+          "distance_min": 0.006842750991143728,
+          "distance_p05": 0.014176080379098456,
+          "distance_median": 0.02294863056858487,
+          "distance_p95": 0.029651969815754242,
+          "distance_max": 0.13918475333991426,
+          "normal_to_tangential_scale_p95": 0.4678748398808735,
+          "first_cell_aspect_p95": 4.956949123718062,
+          "near_wall_internal_faces": 1891,
+          "near_wall_nonortho_max": 46.525433836977065,
+          "near_wall_nonortho_p95": 21.033814611852055,
+          "near_wall_nonortho_over70": 0,
+          "near_wall_nonortho_over65": 0,
+          "near_wall_skew_max": 0.9969239809602921,
+          "near_wall_skew_p95": 0.572306861716226,
+          "near_wall_skew_over4": 0,
+          "near_wall_skew_over2_5": 0
+        },
+        "wall_conditions_verified": false,
+        "wall_field_source": "patch_group:wall",
+        "wall_field_types": {
+          "nut": "nutkWallFunction",
+          "epsilon": "epsilonWallFunction",
+          "alphat": "compressible::alphatJayatillekeWallFunction"
+        },
+        "low_y_wall_function": true,
+        "layer_distribution": {
+          "min": 0,
+          "max": 3,
+          "coverage_area_fraction": 0.9926585500483256,
+          "n_covered": 586,
+          "n_faces": 592,
+          "mean": 2.1052114157638764,
+          "under_target_area_fraction": 0.5787885486538096,
+          "n_under_target": 348
+        },
+        "layer_source": "mesh_generation_field",
+        "measured_layers": 0,
+        "measured_layer_coverage": 0.9926585500483256
+      }
+    },
+    "evidence": [
+      {
+        "kind": "mesh_generation_field",
+        "path": "/home/foamuser/OpenFOAM/foamuser-12/run/iglooWithFridges-layer-validation-20261004/0/nSurfaceLayers",
+        "metric": "nSurfaceLayers"
+      }
+    ],
+    "missing": [
+      "缺少与当前网格匹配且结论为 Mesh OK 的完整 checkMesh 检查",
+      "壁面 ground 缺少 treatment 或 target_yplus，无法判断近壁模型匹配",
+      "壁面 igloo 缺少 treatment 或 target_yplus，无法判断近壁模型匹配",
+      "壁面 twoFridgeFreezers_seal_0 缺少 treatment 或 target_yplus，无法判断近壁模型匹配",
+      "壁面 twoFridgeFreezers_herring_1 缺少 treatment 或 target_yplus，无法判断近壁模型匹配",
+      "缺少试算后各入口/出口的有符号质量通量（或恒密度流的体积通量），无法核对质量守恒",
+      "换热算例缺少有符号焓流与壁面热流，无法核对能量守恒",
+      "缺少压降、流量或换热量的监测序列，无法复核结果稳定性",
+      "缺少至少三套网格的同一目标量结果，无法检查网格敏感性"
+    ],
+    "case_setup": {
+      "wall_field_types": {
+        "wall": {
+          "nut": "nutkWallFunction",
+          "epsilon": "epsilonWallFunction",
+          "alphat": "compressible::alphatJayatillekeWallFunction"
+        }
+      },
+      "application": "foamRun",
+      "simulation_type": "RAS",
+      "turbulence_model": "kEpsilon"
+    },
+    "solution_checks": {}
+  },
+  "recommendations": [
+    {
+      "priority": "high",
+      "metric": "native_mesh_checks_failed",
+      "issue": "checkMesh 检查失败项",
+      "where": "报告未提供局部坐标；先用 checkMesh 集合或质量场定位",
+      "evidence": "极值 1",
+      "mesh_action": "本次原生失败项包含凹单元：先检查贴体表面转角、窄缝、层终止处和相邻细化级别的过渡，再按局部位置调整表面网格、层厚和层生长限制；不要仅凭 snappyHexMesh 的完成信息放行。",
+      "verification": "重新运行 checkMesh -allGeometry -allTopology，确认 Failed mesh checks 归零。"
+    },
+    {
+      "priority": "high",
+      "metric": "boundary_layers",
+      "issue": "壁面 twoFridgeFreezers_seal_0 实际边界层层数",
+      "where": "边界 twoFridgeFreezers_seal_0，坐标范围 [1.9999999999999996, 1.9999999999999993, 0.03205448818642295] 至 [3.000000000000001, 3.000000000000001, 2.100000000000001]",
+      "evidence": "极值 0；范围 472 / 800；目标至少 3 层；按面积计算不足比例 55.1%；来自 nSurfaceLayers 边界场",
+      "mesh_action": "在低于目标层数的壁面区域检查尖角、狭缝及贴体面尺寸；核对 snappyHexMesh 的 minThickness、featureAngle 与层末端缓冲设置，再局部重划。",
+      "verification": "重新读取 nSurfaceLayers 边界场，确认低于目标层数的面积比例与位置改善，并复查近壁歪斜和非正交性。"
+    },
+    {
+      "priority": "high",
+      "metric": "boundary_layers",
+      "issue": "壁面 twoFridgeFreezers_herring_1 实际边界层层数",
+      "where": "边界 twoFridgeFreezers_herring_1，坐标范围 [3.4999999999999996, 2.999999999999999, 0.06200743770040226] 至 [4.500000000000001, 4.000000000000001, 2.1]",
+      "evidence": "极值 0；范围 348 / 592；目标至少 3 层；按面积计算不足比例 57.9%；来自 nSurfaceLayers 边界场",
+      "mesh_action": "在低于目标层数的壁面区域检查尖角、狭缝及贴体面尺寸；核对 snappyHexMesh 的 minThickness、featureAngle 与层末端缓冲设置，再局部重划。",
+      "verification": "重新读取 nSurfaceLayers 边界场，确认低于目标层数的面积比例与位置改善，并复查近壁歪斜和非正交性。"
+    },
+    {
+      "priority": "moderate",
+      "metric": "concave_cells",
+      "issue": "凹单元",
+      "where": "报告未提供局部坐标；先用 checkMesh 集合或质量场定位",
+      "evidence": "极值 None；范围 1733 / 11274",
+      "mesh_action": "检查贴体面尖角、狭缝、层终止处及相邻细化级别的过渡；按问题区域调整表面分辨率、层厚和层生长限制后重新划分。",
+      "verification": "重新运行完整 checkMesh，比较凹单元数量及失败检查项，并复核加层覆盖率。"
+    },
+    {
+      "priority": "moderate",
+      "metric": "skewness",
+      "issue": "歪斜度（OpenFOAM 定义）",
+      "where": "报告未提供局部坐标；先用 checkMesh 集合或质量场定位",
+      "evidence": "极值 3.4481；范围 0 / 37893；面中心相对两单元中心连线交点的偏移，按面尺寸归一化；无上界，0 为理想",
+      "mesh_action": "定位歪斜面的邻接单元，清理尖角/窄缝，平滑表面尺寸过渡并重新贴体。",
+      "verification": "重新检查超标面数、分布和最大歪斜度。"
+    }
+  ],
+  "readiness": "高风险指标待复核，关键结果证据不足",
+  "steps": [
+    {
+      "t": 0.0,
+      "msg": "识别网格来源：openfoam / case（找到 constant/polyMesh/{points,faces,owner}；存在 system/controlDict）",
+      "cmd": null,
+      "status": "ok"
+    },
+    {
+      "t": 0.05,
+      "msg": "使用已有 checkMesh 日志：/home/foamuser/OpenFOAM/foamuser-12/run/iglooWithFridges-layer-validation-20261004/log.checkMesh",
+      "cmd": null,
+      "status": "ok"
+    },
+    {
+      "t": 0.05,
+      "msg": "用 Python 读取 polyMesh，计算各面/单元指标分布和位置",
+      "cmd": "polymesh.analyse(/home/foamuser/OpenFOAM/foamuser-12/run/iglooWithFridges-layer-validation-20261004/constant/polyMesh)",
+      "status": "ok"
+    },
+    {
+      "t": 0.5,
+      "msg": "polyMesh 读取完成：11274 个单元，37893 个面",
+      "cmd": null,
+      "status": "ok"
+    }
+  ]
+}

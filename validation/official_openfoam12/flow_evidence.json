@@ -1,0 +1,13 @@
+{
+  "source": "phi.286",
+  "dimensions": "[0 3 -1 0 0 0 0]",
+  "n_faces": {
+    "inlet": 30,
+    "outlet": 57
+  },
+  "volumetric_flux_m3_s": {
+    "inlet": -0.00025399992,
+    "outlet": 0.000254007287
+  },
+  "relative_imbalance": 2.9003104938477653e-05
+}

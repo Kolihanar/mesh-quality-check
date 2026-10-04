@@ -1,0 +1,9 @@
+{
+  "flow": {
+    "turbulence_model": "kEpsilon"
+  },
+  "wall_defaults": {
+    "treatment": "standard_wall_function",
+    "target_yplus": [30, 300]
+  }
+}

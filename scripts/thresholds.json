@@ -1,0 +1,37 @@
+{
+  "_comment": "经验阈值。每个指标按其所属软件的原生定义判断，不跨软件换算。可按项目需要修改。direction=max 表示越大越差，min 表示越小越差。",
+
+  "openfoam": {
+    "non_orthogonality": {"direction": "max", "unit": "deg", "moderate": 65, "high": 70, "critical": 85,
+                          "_note": "checkMesh 在 70° 报警；snappyHexMesh 默认 maxNonOrtho 65；接近 90° 基本无法靠修正项稳定"},
+    "skewness":          {"direction": "max", "unit": "-", "moderate": 2.5, "high": 4, "critical": 20,
+                          "_note": "OpenFOAM 基于面中心偏移的定义，无上界；checkMesh 内部面阈值 4，snappy maxBoundarySkewness 20"},
+    "aspect_ratio":      {"direction": "max", "unit": "-", "moderate": 1000, "high": 10000, "critical": null,
+                          "_note": "边界层网格大长宽比通常是有意的，需结合位置判断"},
+    "cell_determinant":  {"direction": "min", "unit": "-", "moderate": 0.01, "high": 0.001, "critical": null},
+    "interpolation_weight": {"direction": "min", "unit": "-", "moderate": 0.05, "high": 0.02, "critical": null},
+    "volume_ratio":      {"direction": "min", "unit": "-", "moderate": 0.01, "high": 0.001, "critical": null}
+  },
+
+  "fluent": {
+    "orthogonal_quality": {"direction": "min", "unit": "-", "moderate": 0.1, "high": 0.01, "critical": 0.001,
+                           "_note": "Fluent 建议最小正交质量 > 0.01；ANSYS 经验表 0–0.001 不可接受"},
+    "skewness":           {"direction": "max", "unit": "-", "moderate": 0.95, "high": 0.98, "critical": null,
+                           "_note": "equiangular/ortho skew，取值 0–1；ANSYS 经验表 0.98–1 不可接受，但少量单元时求解器往往仍可运行"},
+    "aspect_ratio":       {"direction": "max", "unit": "-", "moderate": 1000, "high": 10000, "critical": null}
+  },
+
+  "generic": {
+    "scaled_jacobian": {"direction": "min", "unit": "-", "moderate": 0.3, "high": 0.1, "critical": 0.0,
+                        "_note": "VTK/Verdict 定义，1 为理想；≤0 表示单元翻转"},
+    "aspect_ratio":    {"direction": "max", "unit": "-", "moderate": 20, "high": 100, "critical": null,
+                        "_note": "hex/wedge 用 max_aspect_frobenius，tri/quad/tet 用 aspect_ratio，1 为理想"},
+    "skew":            {"direction": "max", "unit": "-", "moderate": 0.6, "high": 0.85, "critical": null,
+                        "_note": "VTK 定义，仅 quad/hex，0 为理想"},
+    "min_angle":       {"direction": "min", "unit": "deg", "moderate": 20, "high": 10, "critical": null,
+                        "_note": "仅 tri/quad/tet"}
+  },
+
+  "scope": {"isolated_max_fraction": 0.001, "local_max_fraction": 0.01,
+            "_note": "超标单元/面占比 <0.1% 记为零星，<1% 记为局部，否则为大面积"}
+}
