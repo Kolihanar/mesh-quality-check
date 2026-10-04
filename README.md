@@ -13,7 +13,14 @@ CFD 网格质量与算例适用性检查 Skill：**识别来源 → 检查网格
 
 ## 在 Codex 中安装和调用
 
-按 [OpenAI 官方 Skill 文档](https://learn.chatgpt.com/docs/build-skills)，Codex 可从用户级 `$HOME/.agents/skills` 发现 Skill，也可在提示词中显式提及。Windows PowerShell 示例：
+直接告诉 Codex 要安装的 Skill（第一轮）：
+
+```text
+$skill-installer 请从 GitHub 仓库 Kolihanar/mesh-quality-check 的根目录安装
+mesh-quality-check Skill（--path . --name mesh-quality-check）。
+```
+
+若不使用自动安装，也可按 [OpenAI 官方 Skill 文档](https://learn.chatgpt.com/docs/build-skills)把 Skill 放在用户级 `$HOME/.agents/skills`，并在提示词中显式提及。Windows PowerShell 示例：
 
 ```powershell
 New-Item -ItemType Directory -Force "$HOME/.agents/skills" | Out-Null
@@ -23,13 +30,15 @@ py -m pip install -r "$HOME/.agents/skills/mesh-quality-check/requirements.txt"
 
 已有本仓库副本时，可直接让 Codex 读取其 `SKILL.md` 体验，不必重复克隆。新安装的 Skill 若未出现，重启 Codex。Linux/WSL 中用 `python3` 替代 `py`，并把依赖安装到实际运行脚本的 Python 环境；OpenFOAM 程序需在已加载其环境的终端运行。完整安装、提示词和案例演示见 [Codex 使用指南](reference/codex_demo.md)。
 
-在 Codex 输入一个完整请求，例如：
+安装完成后，在下一轮用 Skill 检查自己的算例：
 
 ```text
 $mesh-quality-check 请检查 OpenFOAM 12 单相 RANS 内流算例 <算例绝对路径>，
 已有 log.checkMesh 位于 <日志绝对路径>。请实际运行检查，读取报告中的
 overall、readiness 和 cfd.missing，按位置给出网格优化建议；缺少流动参数时不要猜测 y⁺。
 ```
+
+**预期效果：**Codex 实际运行检查并生成 `mesh_report.md`、`mesh_report.json`，说明网格问题的数值、范围与位置，分别报告 `overall`、`readiness`、`cfd.missing`，再给出可执行的网格修改和复查建议。若改用 Skill 自带的 `tests/samples/of_inverted_3d` 合成样例演示，预期检出 `overall=critical`、`readiness=必须修复网格`；真实算例的结果取决于实际网格和工况证据。
 
 ## 直接使用
 
