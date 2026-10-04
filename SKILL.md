@@ -49,6 +49,7 @@ python <本 Skill 目录>/scripts/mesh_check.py <路径> -o <报告目录>
 - Gmsh / 通用格式：`reference/generic.md`
 - OpenFOAM 单相 RANS 内流适用性：`reference/cfd_openfoam.md`（有算例目录时读）
 - 使用 OpenFOAM 官方教程验证本 Skill：`reference/official_validation.md`（需要验证时读）
+- 在 Codex 中安装、编写提示词或复核仓库案例：`reference/codex_demo.md`（用户问用法或案例演示时读）
 
 结合用户的计算类型调整解释（不要改动报告里的等级，而是在解释中说明）：
 - 不知道计算类型且会影响结论时，问一句；

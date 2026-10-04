@@ -15,7 +15,7 @@ TARGETS = {"igloo": 1, "twoFridgeFreezers_seal_0": 3, "twoFridgeFreezers_herring
 
 
 def poly_list(path: Path, kind: str):
-    text = path.read_text()
+    text = path.read_text(encoding="utf-8")
     marker = re.search(r"\n(\d+)\s*\(\s*\n", text)
     assert marker, path
     count = int(marker.group(1))
@@ -33,7 +33,7 @@ def poly_list(path: Path, kind: str):
 
 
 def boundary() -> dict[str, tuple[int, int]]:
-    text = (ROOT / "boundary").read_text()
+    text = (ROOT / "boundary").read_text(encoding="utf-8")
     entries = {}
     for name, body in re.findall(r"([^\s{}();]+)\s*\{([^}]*)\}", text):
         n = re.search(r"\bnFaces\s+(\d+)\s*;", body)
@@ -44,7 +44,7 @@ def boundary() -> dict[str, tuple[int, int]]:
 
 
 def field_values(name: str, count: int) -> np.ndarray:
-    text = (ROOT / "nSurfaceLayers.0").read_text()
+    text = (ROOT / "nSurfaceLayers.0").read_text(encoding="utf-8")
     match = re.search(rf"\b{re.escape(name)}\s*\{{([^}}]*)\}}", text, re.S)
     assert match, name
     body = match.group(1)
@@ -71,13 +71,13 @@ def close(actual: float, expected: float, label: str) -> None:
 
 
 def main() -> None:
-    for line in (ROOT / "native.sha256").read_text().splitlines():
+    for line in (ROOT / "native.sha256").read_text(encoding="utf-8").splitlines():
         digest, name = line.split()
         assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest, name
-    report = json.loads((ROOT / "report/mesh_report.json").read_text())
-    context = json.loads((ROOT / "context.json").read_text())
-    mesh_log = (ROOT / "log.checkMesh").read_text()
-    layer_log = (ROOT / "log.snappyHexMesh").read_text()
+    report = json.loads((ROOT / "report/mesh_report.json").read_text(encoding="utf-8"))
+    context = json.loads((ROOT / "context.json").read_text(encoding="utf-8"))
+    mesh_log = (ROOT / "log.checkMesh").read_text(encoding="utf-8")
+    layer_log = (ROOT / "log.snappyHexMesh").read_text(encoding="utf-8")
     assert "Failed 1 mesh checks." in mesh_log
     assert "Concave cells (using face planes) found, number of cells: 1733" in mesh_log
     assert report["mesh_info"]["n_cells"] == 11274

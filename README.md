@@ -11,12 +11,24 @@ CFD 网格质量与算例适用性检查 Skill：**识别来源 → 检查网格
 | Gmsh `.msh` | Gmsh | meshio + VTK 指标，按物理组定位 |
 | `.vtk/.vtu/.cgns/.inp/.med/...` | 通用 | meshio + VTK 指标 |
 
-## 安装
+## 在 Codex 中安装和调用
 
-把整个文件夹放到 Agent 的 skills 目录（Codex 为 `~/.codex/skills/`；Claude Code 为 `~/.claude/skills/` 或项目内 `.claude/skills/`），然后安装依赖：
+按 [OpenAI 官方 Skill 文档](https://learn.chatgpt.com/docs/build-skills)，Codex 可从用户级 `$HOME/.agents/skills` 发现 Skill，也可在提示词中显式提及。Windows PowerShell 示例：
 
-```bash
-pip install -r requirements.txt
+```powershell
+New-Item -ItemType Directory -Force "$HOME/.agents/skills" | Out-Null
+git clone https://github.com/Kolihanar/mesh-quality-check.git "$HOME/.agents/skills/mesh-quality-check"
+py -m pip install -r "$HOME/.agents/skills/mesh-quality-check/requirements.txt"
+```
+
+已有本仓库副本时，可直接让 Codex 读取其 `SKILL.md` 体验，不必重复克隆。新安装的 Skill 若未出现，重启 Codex。Linux/WSL 中用 `python3` 替代 `py`，并把依赖安装到实际运行脚本的 Python 环境；OpenFOAM 程序需在已加载其环境的终端运行。完整安装、提示词和案例演示见 [Codex 使用指南](reference/codex_demo.md)。
+
+在 Codex 输入一个完整请求，例如：
+
+```text
+$mesh-quality-check 请检查 OpenFOAM 12 单相 RANS 内流算例 <算例绝对路径>，
+已有 log.checkMesh 位于 <日志绝对路径>。请实际运行检查，读取报告中的
+overall、readiness 和 cfd.missing，按位置给出网格优化建议；缺少流动参数时不要猜测 y⁺。
 ```
 
 ## 直接使用
@@ -40,12 +52,36 @@ python scripts/mesh_check.py case/ --context cfd_context.json --layer-field case
 
 报告的 `overall` 表示**已执行的网格质量指标**，`readiness` 表示当前 CFD 适用性判断；`cfd.missing` 列出还缺少的关键证据。没有可用检查数据时退出码为 3，不会给出“可接受”。“按优先级排列的网格优化建议”一节列出位置、证据、修改办法和复核方法。
 
+## 官方算例演示：原生数据与 Skill 对照
+
+下面三幅图使用 OpenFOAM Foundation 12 官方教程的**实际网格与试算输出**。图中的核对脚本、原生日志、场文件、报告和复现步骤都在对应案例目录中；这些结果展示特定检查路径的有效性，不是所有 CFD 网格的通用合格证明。
+
+### 1. 实测 y⁺、目标偏离和体积守恒
+
+![pitzDailySteady 原生结果与 Skill 对照](validation/official_openfoam12/native_vs_skill.png)
+
+`pitzDailySteady` 的两面 y⁺ 极值与 OpenFOAM 原生日志一致；本次**显式设置** 30–300 筛查目标后，Skill 标出 upperWall 223/223 面、lowerWall 250/250 面在目标外。体积通量相对不平衡在原生数据和报告中均约为 **0.0029003%**。这说明场数据解析、目标偏离和守恒计算可核对；该壁面函数有低 y⁺ 分支，不能由低于 30 直接推断计算失败。[原生输出、报告与核对脚本](validation/official_openfoam12/README.md)。
+
+### 2. “有边界层”与“达到目标层数”
+
+![iglooWithFridges 实际层数按壁面面积统计](validation/official_openfoam12_igloo/actual_layers.png)
+
+`iglooWithFridges` 的两个冰柜壁面虽有约 **97.51% / 99.27%** 的正层覆盖面积，仍分别有 **55.10% / 57.88%** 的面积未达到三层目标。原生 `checkMesh` 还报告 **1,733 个凹单元、1 项检查失败**；Skill 同时保留这项失败。该案例验证实际层数和风险识别，网格尚不能作为可用于求解的正例。[原生层字段、报告与独立面积核对](validation/official_openfoam12_igloo/README.md)。
+
+### 3. 残差收敛后仍检查目标量稳定性
+
+![pitzDailySteady 三网格续算的目标量监测](validation/official_openfoam12_grid/extended_three_grid_evidence.png)
+
+三网格续算至 1000 步后，细网格压力目标量末两段均值漂移约 **0.27%**，但最后窗口 P05–P95 相对跨度仍为 **1.81%**，超过本次 1% 筛查容差。Skill 因此将细/中网格差异标为**初步比较**，不会宣称已得到可靠的网格收敛。[原生监测数据、报告与核对脚本](validation/official_openfoam12_grid/README.md)。
+
+复制 [Codex 案例演示提示词](reference/codex_demo.md) 可让 Codex 逐项运行三份独立核对脚本，并链接这些图与报告。合成回归样例的图和边界见 [验证图说明](validation/summary.md)。
+
 ## 调整阈值
 
 所有阈值在 `scripts/thresholds.json`，按软件分开。改动后运行 `python tests/run_tests.py` 确认回归测试仍通过（若期望结果随之改变，同步修改 `tests/run_tests.py` 中的 CASES）。
 OpenFOAM CFD 路线可另运行 `python tests/test_cfd.py`。
 
-当前回归结果及三张验证图见 [`validation/summary.md`](validation/summary.md)。运行 `python validation/generate.py` 可从测试样例重新生成 PNG、SVG 和 `evidence.json`；其中近壁示例的 y⁺、层数为人为赋值。[OpenFOAM 12 官方内流算例实测验证](validation/official_openfoam12/README.md) 提供原生 `checkMesh`、求解器和 `yPlus` 输出、计算前/试算后报告及独立核对脚本。[三网格内流实测验证](validation/official_openfoam12_grid/README.md) 提供真实目标量监测、严格续算和网格对照，检出残差停止后压力目标量仍漂移、均值趋稳后仍往复波动的情况，明确将网格比较标为初步结果。[官方封闭内流加层实测](validation/official_openfoam12_igloo/README.md) 以真实 `nSurfaceLayers` 证明高覆盖率仍可能有大量壁面未达到目标层数，并保留原生凹单元失败结论。[官方 motorBikeSteady 加层实测](validation/official_openfoam12_motorbike/README.md) 补充外流复杂 patch 名的字段验证。
+当前回归结果及三张合成样例验证图见 [验证图说明](validation/summary.md)。运行 `python validation/generate.py` 可重新生成其 PNG、SVG 和 `evidence.json`；其中近壁示例的 y⁺、层数为人为赋值。[motorBikeSteady 加层实测](validation/official_openfoam12_motorbike/README.md) 另补充外流复杂 patch 名的字段验证。重绘本页第一幅实测图可运行 `python validation/official_openfoam12/plot_comparison.py`。
 
 公开的验证日志和报告已将运行者账号、主机名及本机路径替换为示例值；网格、求解和检查数值未改动。`validation/official_openfoam12_igloo/native.sha256` 记录匿名化后保存文件的 SHA-256。
 

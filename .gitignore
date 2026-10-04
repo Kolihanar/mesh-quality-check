@@ -8,6 +8,7 @@ Thumbs.db
 
 # Local reports created at the repository root; curated validation evidence is kept.
 /report_dir/
+/demo_output/
 /mesh_report.md
 /mesh_report.json
 /log.checkMesh

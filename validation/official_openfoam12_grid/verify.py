@@ -16,7 +16,7 @@ METRIC = "kinematic_pressure_difference_m2_s2"
 def rows(path: Path) -> list[tuple[int, float]]:
     return [
         (int(float(time)), float(value))
-        for line in path.read_text().splitlines()
+        for line in path.read_text(encoding="utf-8").splitlines()
         if line and not line.startswith("#")
         for time, value in [line.split()]
     ]
@@ -27,17 +27,17 @@ def close(a: float, b: float) -> None:
 
 
 def main() -> None:
-    evidence = json.loads((ROOT / "evidence.json").read_text())
-    context = json.loads((ROOT / "context.json").read_text())
-    report = json.loads((ROOT / "report/mesh_report.json").read_text())
+    evidence = json.loads((ROOT / "evidence.json").read_text(encoding="utf-8"))
+    context = json.loads((ROOT / "context.json").read_text(encoding="utf-8"))
+    report = json.loads((ROOT / "report/mesh_report.json").read_text(encoding="utf-8"))
     checks = report["cfd"]["solution_checks"]
     assert report["overall"] == "high"
     assert report["extra"]["checkmesh_verdict"] == "Mesh OK"
     assert checks["grid_sensitivity"][METRIC]["interpretation"] == "provisional_target_unstable"
     assert len(checks["grid_sensitivity"][METRIC]["unstable_monitor_histories"]) == 3
     for index, grade in enumerate(("coarse", "medium", "fine")):
-        native_mesh = (ROOT / f"{grade}.log.checkMesh").read_text()
-        native_solver = (ROOT / f"{grade}.log.foamRun").read_text()
+        native_mesh = (ROOT / f"{grade}.log.checkMesh").read_text(encoding="utf-8")
+        native_solver = (ROOT / f"{grade}.log.foamRun").read_text(encoding="utf-8")
         assert "Mesh OK." in native_mesh
         native_cells = int(re.search(r"^\s*cells:\s*(\d+)", native_mesh, re.M).group(1))
         native_iterations = int(re.search(r"SIMPLE solution converged in (\d+) iterations", native_solver).group(1))
@@ -70,13 +70,13 @@ def main() -> None:
     medium, fine = (evidence["grids"][grade][METRIC] for grade in ("medium", "fine"))
     change = abs(fine - medium) / max(abs(fine), abs(medium))
     close(change, checks["grid_sensitivity"][METRIC]["fine_medium_relative_change"])
-    markdown = (ROOT / "report/mesh_report.md").read_text()
+    markdown = (ROOT / "report/mesh_report.md").read_text(encoding="utf-8")
     assert "当前网格差异只是初步比较" in markdown
     assert "先使各套网格上的目标量监测序列稳定" in markdown
 
-    extended = json.loads((ROOT / "extended_evidence.json").read_text())
-    extended_context = json.loads((ROOT / "extended_context.json").read_text())
-    extended_report = json.loads((ROOT / "extended_report/mesh_report.json").read_text())
+    extended = json.loads((ROOT / "extended_evidence.json").read_text(encoding="utf-8"))
+    extended_context = json.loads((ROOT / "extended_context.json").read_text(encoding="utf-8"))
+    extended_report = json.loads((ROOT / "extended_report/mesh_report.json").read_text(encoding="utf-8"))
     extended_checks = extended_report["cfd"]["solution_checks"]
     assert extended_report["overall"] == "high"
     assert extended_report["extra"]["checkmesh_verdict"] == "Mesh OK"
@@ -84,7 +84,7 @@ def main() -> None:
     assert extended_checks["grid_sensitivity"][METRIC]["unstable_monitor_histories"] == [f"{METRIC}_fine"]
     for index, grade in enumerate(("coarse", "medium", "fine")):
         start = extended["grids"][grade]["start_iteration"]
-        native_solver = (ROOT / f"{grade}.log.foamRun.extended").read_text()
+        native_solver = (ROOT / f"{grade}.log.foamRun.extended").read_text(encoding="utf-8")
         assert "Time = 1000s" in native_solver and "SIMPLE solution converged" not in native_solver
         pressure = {}
         for patch in ("inlet", "outlet"):
@@ -112,7 +112,7 @@ def main() -> None:
                 flux = rows(ROOT / f"fine.{patch}Flow.{start}.dat")[-1][1]
                 close(flux, extended_context["results"]["volumetric_flux_m3_s"][patch])
             assert extended_report["cfd"]["wall_checks"]["upperWall"]["provenance"] == "solver_result"
-    extended_markdown = (ROOT / "extended_report/mesh_report.md").read_text()
+    extended_markdown = (ROOT / "extended_report/mesh_report.md").read_text(encoding="utf-8")
     assert "P05–P95 波动" in extended_markdown and "当前网格差异只是初步比较" in extended_markdown
     print("OpenFOAM 12 three-grid native/Skill comparison: passed (initial and strict-stop trials, pressure, flux, drift, spread, provisional grid sensitivity)")
 

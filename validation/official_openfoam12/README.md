@@ -43,6 +43,10 @@ python3 "$skill/validation/official_openfoam12/verify.py"
 | 入口/出口体积通量 | −2.539999×10⁻⁴ / +2.540073×10⁻⁴ m³/s | 从 ASCII `phi` 得到 −2.5399992×10⁻⁴ / +2.54007287×10⁻⁴ m³/s，差异仅为原生表格的显示舍入 |
 | 体积通量相对不平衡 | 约 0.0029% | 0.0029003%，低于本次 1% 容差；恒密度流可据此核对质量守恒 |
 
+![OpenFOAM 原生 yPlus、目标外壁面面数及体积通量守恒与 Skill 对照](native_vs_skill.png)
+
+图从保存的原生 `log.yPlus.solver`、`yPlus.286`、由 `phi.286` 核对的 `flow_evidence.json` 与 `postflight/mesh_report.json` 提取数值。运行 `python plot_comparison.py` 可重新生成 PNG/SVG；脚本在绘图前逐项断言原生极值、目标外面数和守恒结果与 Skill 一致。绘图所需的 `matplotlib` 已列入根目录的 `requirements.txt`。
+
 原始材料：[`log.checkMesh`](log.checkMesh)、[`log.foamRun`](log.foamRun)、[`log.yPlus.solver`](log.yPlus.solver)、[`yPlus.286`](yPlus.286)、[`phi.286`](phi.286)、[`log.surfaceFieldValue`](log.surfaceFieldValue)、[`inletFlow.dat`](inletFlow.dat)、[`outletFlow.dat`](outletFlow.dat)、[`polyMesh.sha256`](polyMesh.sha256)。报告：[`preflight/mesh_report.md`](preflight/mesh_report.md)、[`postflight/mesh_report.md`](postflight/mesh_report.md)。[`extract_phi.py`](extract_phi.py) 读取并核对 `phi` 量纲；[`verify.py`](verify.py) 比较原生日志、yPlus 场、原生通量表和 Skill 报告。
 
 本次在 [`context.json`](context.json) **显式选择** 30–300 作为壁面 y⁺ 筛查目标，因此报告将两面标为高风险的“目标偏离”。这不是 OpenFOAM 对该算例的硬性有效性规则。OpenFOAM 12 的 [`nutkWallFunction`](https://cpp.openfoam.org/v12/nutkWallFunctionFvPatchScalarField_8C_source.html) 和 [`epsilonWallFunction`](https://cpp.openfoam.org/v12/epsilonWallFunctionFvPatchScalarField_8C_source.html) 均包含低 y⁺ 分支；而原生求解已报告收敛。因此不能由 y⁺ 低于 30 推断算例发散，也不能由收敛和守恒推断压降或壁面剪切足够准确。原生入口/出口平均运动压力已保存于 [`inletPressure.dat`](inletPressure.dat) 与 [`outletPressure.dat`](outletPressure.dat)，但只有一个时间点；后续已完成[三网格目标量监测验证](../official_openfoam12_grid/README.md)。
